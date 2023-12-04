@@ -3,6 +3,7 @@
   --bg-color: #111;
   --text-color: #fff;
   --neutral: #777;
+  --accent: darkorange;
 }
 
 html {
@@ -52,12 +53,15 @@ nav {
 footer {
   text-align: center;
   padding-top: 20px;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   color: var(--neutral);
 }
 
-/** Slider **/
+.highlight {
+  color: var(--accent);
+}
 
+/** Options **/
 .instructions {
   font-size: 0.8rem;
   display: block;
