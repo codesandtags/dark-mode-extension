@@ -2,15 +2,13 @@
 
 <img src="assets/icon.png" alt="Dark Mode Enabler Logo" width="100px" height="auto"/>
 
-## Overview
-
-- **Author:** Edwin Torres
-- **Version:** 0.0.1
-- **Language:** JavaScript
-
 ## Introduction
 
 Dark Mode Enabler is an open-source Chrome extension designed to help you enable Dark Mode or at least, invert colors to release your eyes from the white light of the screen.
+
+## Examples
+
+<img src="assets/example-dark.png" alt="Dark Mode Enabler Example 1" width="100%" height="auto"/>
 
 ## Features
 
