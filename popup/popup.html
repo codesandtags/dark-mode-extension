@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dark Mode Enabler</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <h1>
+          <img src="../assets/icon.png" alt="Dark Mode Enabler" class="icon" />
+          Dark Mode Enabler
+        </h1>
+        <div class="version">
+          <span>v.0.0.1</span>
+        </div>
+      </nav>
+      <main>
+        <div class="instructions">Choose Display Mode</div>
+        <div class="options">
+          <div class="mode-option">
+            <input
+              type="radio"
+              id="modeDisabled"
+              name="displayMode"
+              value="0"
+              checked
+            />
+            <label for="modeDisabled">Disabled</label>
+          </div>
+          <div class="mode-option">
+            <input type="radio" id="modeDark" name="displayMode" value="1" />
+            <label for="modeDark">Dark</label>
+          </div>
+          <div class="mode-option">
+            <input type="radio" id="modeSepia" name="displayMode" value="2" />
+            <label for="modeSepia">Sepia</label>
+          </div>
+          <div class="mode-option">
+            <input
+              type="radio"
+              id="modeGrayscale"
+              name="displayMode"
+              value="3"
+            />
+            <label for="modeGrayscale">Grayscale</label>
+          </div>
+        </div>
+      </main>
+      <footer>Develop❤️ by @codesandtags</footer>
+    </div>
+    <script src="/popup/popup.js"></script>
+  </body>
+</html>

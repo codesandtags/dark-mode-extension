@@ -1,0 +1,77 @@
+/* CSS variables */
+:root {
+  --bg-color: #111;
+  --text-color: #fff;
+  --neutral: #777;
+}
+
+html {
+  background: var(--bg-color);
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+body {
+  width: 250px;
+  color: var(--text-color);
+}
+
+.container {
+  padding: 20px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+nav {
+  text-align: left;
+}
+
+.icon {
+  width: 30px;
+  margin-right: 10px;
+  height: auto;
+  display: inline-block;
+}
+
+.version {
+  font-size: 0.8rem;
+  color: var(--neutral);
+}
+
+footer {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.8rem;
+  color: var(--neutral);
+}
+
+/** Slider **/
+
+.instructions {
+  font-size: 0.8rem;
+  display: block;
+  margin: 10px 0;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mode-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
