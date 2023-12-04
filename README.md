@@ -1,6 +1,6 @@
 # Dark Mode Enabler Chrome Extension
 
-<img src="assets/icon.png" alt="Dark Mode Enabler Logo" width="100px" height="auto"/>
+<img src="assets/icon-128.png" alt="Dark Mode Enabler Logo" width="100px" height="auto"/>
 
 ## Introduction
 
