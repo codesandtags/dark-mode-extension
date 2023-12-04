@@ -20,6 +20,12 @@ Dark Mode Enabler is an open-source Chrome extension designed to help you enable
 2. Any website you want to enable Dark Mode, just click on the extension icon and it will invert the colors of the website.
 3. Enjoy!
 
+## Permissions
+
+- **activeTab**: Allows the extension to read the URL of the current tab in order to invert the colors of the website.
+- **storage**: Allows the extension to store the current state of the extension (enabled or disabled) in order to keep the state when you change tabs.
+- **host**: Allows the extension to access the current website in order to invert the colors of the website.
+
 ## Contributing
 
 Dark Mode Enabler is an open-source project, and I welcome any contributions to enhance its functionality and usability. If you have any ideas for feature improvements or bug fixes, feel free to submit a pull request (PR). Together, we can make Dark Mode Enabler even better!
