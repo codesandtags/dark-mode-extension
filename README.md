@@ -8,7 +8,7 @@ Dark Mode Enabler is an open-source Chrome extension designed to help you enable
 
 ## Examples
 
-[<img src="/assets/example-dark.png" alt="examples" width="50%">](/assets/demo.mp4 "Examples")
+https://github.com/codesandtags/dark-mode-extension/assets/5404833/081d8ea0-f086-4ee2-81ff-21149e58ff64
 
 ## Features
 
