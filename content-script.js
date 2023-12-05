@@ -14,11 +14,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
   if (option in OPTIONS) {
     document.body.style.filter = OPTIONS[option];
+    document.body.style.backgroundColor = option === "DARK" ? "#000" : "";
 
     if (hostname) {
       saveSettings(hostname, option);
     }
   }
+
+  sendResponse({ message: "success" });
 });
 
 /**
