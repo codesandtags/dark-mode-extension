@@ -12,7 +12,10 @@ https://github.com/codesandtags/dark-mode-extension/assets/5404833/081d8ea0-f086
 
 ## Features
 
-- Supports Dark Mode and Semi-Dark Mode.
+- Supports the next following display modes:
+  - Dark Mode
+  - Sepia Mode
+  - Grayscale Mode
 
 ## How to Use
 
