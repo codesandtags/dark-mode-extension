@@ -8,7 +8,21 @@ Dark Mode Enabler is an open-source Chrome extension designed to help you enable
 
 ## Examples
 
-<img src="assets/example-dark.png" alt="Dark Mode Enabler Example 1" width="100%" height="auto"/>
+### Disabled Mode
+
+<img src="assets/example-disabled.png" alt="Dark Mode Enabler Disabled Mode" width="100%" height="auto"/>
+
+### Dark Mode
+
+<img src="assets/example-dark.png" alt="Dark Mode Enabler Dark Mode" width="100%" height="auto"/>
+
+### Sepia Mode
+
+<img src="assets/example-sepia.png" alt="Dark Mode Enabler Sepia Mode" width="100%" height="auto"/>
+
+### Grayscale Mode
+
+<img src="assets/example-grayscale.png" alt="Dark Mode Enabler Grayscale Mode" width="100%" height="auto"/>
 
 ## Features
 
