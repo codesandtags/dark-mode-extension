@@ -4,7 +4,7 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.0.1   | :white_check_mark: |
+| 0.0.2   | :white_check_mark: |
 
 Dark Mode Enabler currently supports version 0.0.x. We strive to provide timely security updates and ensure a safe and secure user experience.
 
