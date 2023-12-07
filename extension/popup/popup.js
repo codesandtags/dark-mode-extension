@@ -1,4 +1,5 @@
 const LOCAL_STORAGE_KEY = "dark-mode-enabler";
+const VERSION = "v1.0.0";
 const OPTIONS = {
   DARK: "1",
   SEPIA: "2",
@@ -57,10 +58,16 @@ document.querySelectorAll('input[name="displayMode"]').forEach((radio) => {
   });
 });
 
+function showVersion() {
+  document.querySelector("#versionNumber").textContent = VERSION;
+}
+
 /**
  * Apply saved preferences to the current page
  */
 document.addEventListener("DOMContentLoaded", function () {
+  showVersion();
+
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     let hostname = new URL(tabs[0].url).hostname;
     let settings = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || {};

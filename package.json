@@ -2,9 +2,19 @@
   "name": "dark-mode-enabler",
   "version": "0.0.2",
   "description": "Chrome extension designed to help you enable Dark Mode or at least, invert colors to release your eyes from the white light of the screen.",
-  "main": "content-script.js",
+  "main": "extension/content-script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/codesandtags/dark-mode-extension/blob/main/LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codesandtags/dark-mode-extension.git"
   },
   "keywords": [
     "chrome-extension",

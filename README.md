@@ -6,6 +6,8 @@
 
 Dark Mode Enabler is an open-source Chrome extension designed to help you enable Dark Mode or at least, invert colors to release your eyes from the white light of the screen.
 
+This extension enables dark mode and filters on all websites that do not support it natively.
+
 ## Examples
 
 https://github.com/codesandtags/dark-mode-extension/assets/5404833/081d8ea0-f086-4ee2-81ff-21149e58ff64

@@ -2,14 +2,14 @@
   "manifest_version": 3,
   "name": "Dark Mode Enabler",
   "version": "0.0.2",
+  "description": "Enables dark mode and filters on all websites that do not support it natively.",
+  "author": "codesandtags@gmail.com",
   "permissions": ["activeTab", "storage"],
   "host_permissions": ["*://*/*"],
   "action": {
     "default_popup": "popup/popup.html",
     "default_icon": {
-      "16": "assets/icon-16.png",
-      "48": "assets/icon-48.png",
-      "128": "assets/icon-128.png"
+      "128": "icons/icon-128.png"
     }
   },
   "content_scripts": [
@@ -19,13 +19,13 @@
     }
   ],
   "icons": {
-    "16": "assets/icon-16.png",
-    "48": "assets/icon-48.png",
-    "128": "assets/icon-128.png"
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   },
   "web_accessible_resources": [
     {
-      "resources": ["popup.html", "content-script.js"],
+      "resources": ["popup.html", "content-script.js", "manifest.json"],
       "matches": ["<all_urls>"]
     }
   ]

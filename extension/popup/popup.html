@@ -11,22 +11,15 @@
     <link rel="stylesheet" href="./popup.css" />
   </head>
   <body>
-    <div class="container">
-      <nav>
-        <h1>
-          <img
-            src="../assets/icon-128.png"
-            alt="Dark Mode Enabler"
-            class="icon"
-          />
-          Dark Mode Enabler
-        </h1>
-        <div class="version">
-          <span>v.0.0.2</span>
-        </div>
-      </nav>
+    <header>
+      <h1>
+        <img src="../icons/icon-128.png" alt="Dark Mode Enabler" class="icon" />
+        Dark Mode Enabler
+      </h1>
+    </header>
+    <div class="container bg-base-100">
       <main>
-        <div class="instructions">Choose Display Mode</div>
+        <div class="instructions">Choose the Display Mode</div>
         <div class="options">
           <div class="mode-option">
             <input
@@ -58,7 +51,10 @@
         </div>
       </main>
       <footer>
-        Developed ❤️ by <span class="highlight">@codesandtags</span>
+        <div>Developed by <span class="highlight">@codesandtags</span></div>
+        <div class="version">
+          <span id="versionNumber"></span>
+        </div>
       </footer>
     </div>
     <script src="/popup/popup.js"></script>
