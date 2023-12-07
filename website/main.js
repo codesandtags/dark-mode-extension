@@ -8,7 +8,7 @@ document.querySelector("#app").innerHTML = `
     </a>
     <h1>Dark Mode Enabler!</h1>
     <p class="read-the-docs">
-      Click on the logo to learn more.
+      👋 Click on the logo to learn more.
     </p>
   </div>
 `;

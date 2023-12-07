@@ -1,6 +1,6 @@
 # Dark Mode Enabler Chrome Extension
 
-<img src="assets/icon-128.png" alt="Dark Mode Enabler Logo" width="100px" height="auto"/>
+<img src="extension/icons/icon-128.png" alt="Dark Mode Enabler Logo" width="100px" height="auto"/>
 
 ## Introduction
 
@@ -18,6 +18,7 @@ https://github.com/codesandtags/dark-mode-extension/assets/5404833/081d8ea0-f086
   - Dark Mode
   - Sepia Mode
   - Grayscale Mode
+- It remembers your choice for each website.
 
 ## How to Use
 
