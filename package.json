@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "publish": "vite build && git add . && git commit -m 'chore: added website build' && git push origin main && git push origin --delete gh-pages && git subtree push --prefix dist origin gh-pages"
   },
   "licenses": [
     {
