@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "publish": "vite build && git add . && git commit -m 'chore: added website build' && git push origin main && git push origin --delete gh-pages && git subtree push --prefix dist origin gh-pages"
+    "predeploy": "vite build",
+    "deploy": "gh-pages -d dist"
   },
   "licenses": [
     {
@@ -27,5 +28,9 @@
   "license": "MIT",
   "dependencies": {
     "vite": "^5.0.6"
-  }
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.0"
+  },
+  "homepage": "https://codesandtags.github.io/dark-mode-extension/"
 }
