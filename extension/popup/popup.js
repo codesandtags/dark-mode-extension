@@ -1,29 +1,14 @@
-const LOCAL_STORAGE_KEY = "dark-mode-enabler";
+const STORAGE_KEY = "darkModeSettings";
 const VERSION = "v1.0.0";
 const OPTIONS = {
-  DARK: "1",
-  SEPIA: "2",
-  GRAY_SCALE: "3",
-  DISABLED: "0",
+  1: "DARK",
+  2: "SEPIA",
+  3: "GRAY_SCALE",
+  0: "DISABLED",
 };
 
-/**
- * Return current settings from local storage
- * @returns {object} settings
- */
-function getSettings() {
-  return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || {};
-}
-
-/**
- * Save settings to local storage
- * @param {string} hostname
- * @param {string} option
- */
-function saveSettings(hostname, option) {
-  const settings = getSettings();
-  settings[hostname] = option;
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(settings));
+function showVersion() {
+  document.querySelector("#versionNumber").textContent = VERSION;
 }
 
 /**
@@ -33,33 +18,41 @@ function saveSettings(hostname, option) {
 document.querySelectorAll('input[name="displayMode"]').forEach((radio) => {
   radio.addEventListener("change", function () {
     const modeValue = this.value;
-    let option;
-
-    switch (modeValue) {
-      case "1": // Dark Mode
-        option = "DARK";
-        break;
-      case "2": // Sepia Mode
-        option = "SEPIA";
-        break;
-      case "3": // Gray Scale Mode
-        option = "GRAY_SCALE";
-        break;
-      default: // Disabled
-        option = "DISABLED";
-    }
+    let option = OPTIONS[modeValue] || "0";
 
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       const hostname = new URL(tabs[0].url).hostname;
 
-      saveSettings(hostname, option);
-      chrome.tabs.sendMessage(tabs[0].id, { option, hostname });
+      try {
+        chrome.tabs.sendMessage(tabs[0].id, { option, hostname });
+      } catch (error) {
+        console.error("There was an error sending the message!");
+      }
     });
   });
 });
 
-function showVersion() {
-  document.querySelector("#versionNumber").textContent = VERSION;
+function applySavedPreferences(hostname) {
+  chrome.storage.sync.get([STORAGE_KEY], function (result) {
+    let settings = result.darkModeSettings || {};
+    let savedMode = settings[hostname];
+
+    // Set the radio button based on saved settings
+    if (settings[hostname]) {
+      let defaltValue = "0";
+
+      for (const [key, value] of Object.entries(OPTIONS)) {
+        if (value === savedMode) {
+          defaltValue = key;
+          break;
+        }
+      }
+
+      document.querySelector(
+        `input[name="displayMode"][value="${defaltValue}"]`
+      ).checked = true;
+    }
+  });
 }
 
 /**
@@ -70,14 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     let hostname = new URL(tabs[0].url).hostname;
-    let settings = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || {};
 
-    // Set the radio button based on saved settings
-    if (settings[hostname]) {
-      const defaltValue = OPTIONS[settings[hostname]] || "0";
-      document.querySelector(
-        `input[name="displayMode"][value="${defaltValue}"]`
-      ).checked = true;
-    }
+    applySavedPreferences(hostname);
   });
 });

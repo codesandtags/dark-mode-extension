@@ -1,4 +1,4 @@
-const LOCAL_STORAGE_KEY = "dark-mode-enabler";
+const STORAGE_KEY = "darkModeSettings";
 const OPTIONS = {
   DARK: "invert(1) hue-rotate(180deg)",
   SEPIA: "sepia(1)",
@@ -25,22 +25,19 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 });
 
 /**
- * Return current settings from local storage
- * @returns {object} settings
- */
-function getSettings() {
-  return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || {};
-}
-
-/**
- * Save settings to local storage
+ * Save settings to chrome.storage
  * @param {string} hostname
  * @param {string} option
  */
 function saveSettings(hostname, option) {
-  const settings = getSettings();
-  settings[hostname] = option;
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(settings));
+  chrome.storage.sync.get([STORAGE_KEY], function (result) {
+    const settings = result?.darkModeSettings || {};
+    settings[hostname] = option;
+
+    chrome.storage.sync.set({ [STORAGE_KEY]: settings }, function () {
+      console.info(`[${STORAGE_KEY}]: Settings saved`);
+    });
+  });
 }
 
 /**
@@ -49,11 +46,15 @@ function saveSettings(hostname, option) {
  */
 function applySavedPreferences() {
   let hostname = window.location.hostname;
-  let settings = getSettings();
 
-  if (settings[hostname]) {
-    document.body.style.filter = OPTIONS[settings[hostname]];
-  }
+  chrome.storage.sync.get([STORAGE_KEY], function (result) {
+    let settings = result.darkModeSettings || {};
+    const savedSettings = settings[hostname];
+
+    if (savedSettings) {
+      document.body.style.filter = OPTIONS[savedSettings];
+    }
+  });
 }
 
 // Apply preferences when the script loads
