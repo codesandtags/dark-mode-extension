@@ -5,68 +5,99 @@ const OPTIONS = {
   GRAY_SCALE: applyGrayScaleModeStyles,
   DISABLED: applyDisabledModeStyles,
 };
+const darkModeStylesId = "dark-mode-styles";
+
+const css = `
+  body.dark-mode {
+    filter: invert(0.9) hue-rotate(180deg);
+    background-color: #000;
+  }
+
+  /* Avoid filter effect for images */
+  body.dark-mode img,
+  body.dark-mode video,
+  body.dark-mode picture,
+  body.dark-mode svg,
+  body.dark-mode canvas {
+    filter: invert(1) hue-rotate(-180deg);
+  }
+
+  body.dark-mode *::selection {
+    background: #220;
+    color: #eee;
+  }
+
+  body.gray-scale-mode {
+    filter: grayscale(1);
+  }
+
+  body.gray-scale-mode *::selection {
+    background: #8e8e0f;
+    color: #000;
+  }
+
+  body.sepia-mode {
+    filter: sepia(1);
+  }
+
+  body.sephia *::selection {
+    background: #8e8e0f;
+    color: #000;
+  }
+`;
+
+/**
+ * Remove the custom CSS
+ */
+function removeCustomCSS() {
+  const existingStyle = document.getElementById("dark-mode-styles");
+
+  if (existingStyle) {
+    existingStyle.remove();
+  }
+}
+
+/**
+ * Include the custom CSS
+ */
+function includeCustomCSS() {
+  const existingStyle = document.getElementById(darkModeStylesId);
+
+  if (!existingStyle) {
+    const style = document.createElement("style");
+    style.id = darkModeStylesId;
+    style.innerHTML = css;
+    document.head.appendChild(style);
+  }
+}
+
+function addClassNameToBody(className) {
+  const classesToRemove = ["dark-mode", "gray-scale-mode", "sepia-mode"];
+  classesToRemove.forEach((c) => document.body.classList.remove(c));
+
+  if (className) {
+    document.body.classList.add(className);
+  }
+}
 
 function applyDisabledModeStyles() {
-  const style = document.createElement("style");
-  style.innerHTML = `
-    body {
-      filter: none;
-      background-color: inherit;
-    }
-
-    *::selection {
-      background: #ee0;
-      color: #222;
-    }
-  `;
-  document.head.appendChild(style);
+  removeCustomCSS();
+  addClassNameToBody("");
 }
 
 function applyGrayScaleModeStyles() {
-  const style = document.createElement("style");
-  style.innerHTML = `
-    body {
-      filter: grayscale(1);
-    }
-
-    *::selection {
-      background: #8e8e0f;
-      color: #000;
-    }
-  `;
-  document.head.appendChild(style);
-}
-
-function applySepiaModeStyles() {
-  const style = document.createElement("style");
-  style.innerHTML = `
-    body {
-      filter: sepia(1);
-    }
-
-    *::selection {
-      background: #8e8e0f;
-      color: #000;
-    }
-  `;
-  document.head.appendChild(style);
+  includeCustomCSS();
+  addClassNameToBody("gray-scale-mode");
 }
 
 function applyDarkModeStyles() {
-  const style = document.createElement("style");
-  style.innerHTML = `
-    body {
-      filter: invert(1) hue-rotate(180deg);
-      background-color: #000;
-    }
+  includeCustomCSS();
+  addClassNameToBody("dark-mode");
+}
 
-    *::selection {
-      background: #8e8e0f;
-      color: #000;
-    }
-  `;
-
-  document.head.appendChild(style);
+function applySepiaModeStyles() {
+  includeCustomCSS();
+  addClassNameToBody("sepia-mode");
 }
 
 /**
@@ -117,8 +148,12 @@ function applySavedPreferences() {
     let settings = result.darkModeSettings || {};
     const savedSettings = settings[hostname];
 
-    if (savedSettings) {
-      document.body.style.filter = OPTIONS[savedSettings];
+    if (savedSettings && savedSettings in OPTIONS) {
+      const applyStyles = OPTIONS[savedSettings];
+
+      if (typeof applyStyles === "function") {
+        applyStyles();
+      }
     }
   });
 }

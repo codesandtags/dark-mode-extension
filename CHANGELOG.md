@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Refactored code to extend styles according to mode selected, instead of only using a filter.
+- Added better support to avoid hue shifts when inverting colors for images and videos.
+- Added class instead of inline styles to avoid conflicts with other stylesheets.
 
 ## [1.0.0] - 2023-12-10
 
