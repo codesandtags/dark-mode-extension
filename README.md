@@ -20,6 +20,12 @@ https://github.com/codesandtags/dark-mode-extension/assets/5404833/081d8ea0-f086
   - Grayscale Mode
 - It remembers your choice for each website.
 
+## Test the extension
+
+[🧩 Install Dark Mode Enabler Extension](https://chromewebstore.google.com/detail/dark-mode-enabler/jpgjmidladomebfdpanhbeodbmkibdcp)
+
+<img src="assets/chrome-extension-search.png" alt="Dark Mode Enabler Logo" width="100%" height="auto"/>
+
 ## How to Use
 
 1. Install the Dark Mode Enabler Chrome Extension from the Chrome Web Store.
