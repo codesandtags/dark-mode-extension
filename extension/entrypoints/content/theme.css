@@ -1,0 +1,130 @@
+/**
+ * Theme rules for every mode.
+ *
+ * Declared in manifest.json under content_scripts.css, which Chrome injects
+ * before the document is rendered. That is what removes the white flash: the
+ * pre-2.0 build shipped this CSS as a JS string appended at document_idle, so
+ * every page painted white first and flipped afterwards.
+ *
+ * Every rule is gated on the data-dme-mode attribute that the content script
+ * sets on <html>, so a page with the extension disabled matches nothing.
+ *
+ * Why the filter is on :root and not on <body>:
+ * the Filter Effects spec makes any filtered element the containing block for
+ * its fixed- and absolute-positioned descendants — *unless* that element is the
+ * document root. Filtering <body> therefore detaches every sticky header, nav
+ * bar and modal from the viewport; filtering <html> does not.
+ */
+
+/**
+ * Appearance, set as custom properties on :root by the content script.
+ *
+ * The fallbacks here are the neutral values, so the stylesheet is correct on its
+ * own if the script has not run yet — which matters, because the CSS lands
+ * before the first paint and the script's storage read resolves a moment later.
+ */
+:root {
+  --dme-brightness: 1;
+  --dme-contrast: 1;
+  --dme-sepia: 0;
+}
+
+/**
+ * Composition order below is load-bearing. The mode's own transform runs first
+ * and the user's adjustments layer on top, so lowering brightness darkens the
+ * *inverted* result rather than the original page.
+ */
+
+/* --------------------------------------------------------------------------
+ * Dark
+ * ----------------------------------------------------------------------- */
+
+:root[data-dme-mode="dark"] {
+  /* Inverted to black. Guarantees no white gaps on pages that declare no
+     background of their own and would otherwise fall through to the canvas. */
+  background-color: #fff;
+}
+
+/**
+ * invert(1) rather than invert(0.9): the counter-invert applied to media below
+ * only round-trips exactly at full strength. At 0.9 photographs come back
+ * visibly muddied.
+ *
+ * Top-layer content (modal dialogs, popovers) is painted outside the root
+ * element's stacking context and is *not* covered by the root filter, so it
+ * needs the filter applied directly or it stays glaring white on a dark page.
+ * :is() is forgiving, so :popover-open being unknown to an older browser does
+ * not invalidate the rest of the selector list.
+ */
+:root[data-dme-mode="dark"],
+:root[data-dme-mode="dark"] :is(dialog:modal, [popover]:popover-open) {
+  filter: invert(1) hue-rotate(180deg) brightness(var(--dme-brightness))
+    contrast(var(--dme-contrast)) sepia(var(--dme-sepia));
+}
+
+/**
+ * Invert media back so photographs are not negatives.
+ *
+ * `picture` is deliberately absent: it wraps the <img> that actually renders, so
+ * filtering both would invert that image twice and undo the correction.
+ *
+ * Inline <svg> is also excluded. It is overwhelmingly used for monochrome icons,
+ * which should flip with the page — counter-inverting them leaves black icons on
+ * a black background.
+ *
+ * <iframe> is counter-inverted because the frame runs its own copy of this
+ * stylesheet (all_frames) and themes itself; without this the frame would be
+ * inverted twice.
+ */
+:root[data-dme-mode="dark"] :is(img, video, canvas, embed, object, iframe) {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/**
+ * Images the classifier identified as logos or icons — dark ink on a
+ * transparent background. Counter-inverting one of those repaints the dark ink
+ * onto a now-dark page and it vanishes, so let the root filter invert it
+ * instead. See lib/classify-image.ts.
+ */
+:root[data-dme-mode="dark"] [data-dme-img="icon"] {
+  filter: none;
+}
+
+:root[data-dme-mode="dark"] ::backdrop {
+  background-color: rgb(0 0 0 / 60%);
+}
+
+:root[data-dme-mode="dark"] *::selection {
+  background: #220;
+  color: #eee;
+}
+
+/* --------------------------------------------------------------------------
+ * Sepia — warms the page down without inverting it (reading mode).
+ * ----------------------------------------------------------------------- */
+
+:root[data-dme-mode="sepia"],
+:root[data-dme-mode="sepia"] :is(dialog:modal, [popover]:popover-open) {
+  filter: sepia(1) brightness(var(--dme-brightness))
+    contrast(var(--dme-contrast));
+}
+
+:root[data-dme-mode="sepia"] *::selection {
+  background: #8e8e0f;
+  color: #000;
+}
+
+/* --------------------------------------------------------------------------
+ * Grayscale
+ * ----------------------------------------------------------------------- */
+
+:root[data-dme-mode="grayscale"],
+:root[data-dme-mode="grayscale"] :is(dialog:modal, [popover]:popover-open) {
+  filter: grayscale(1) brightness(var(--dme-brightness))
+    contrast(var(--dme-contrast)) sepia(var(--dme-sepia));
+}
+
+:root[data-dme-mode="grayscale"] *::selection {
+  background: #8e8e0f;
+  color: #000;
+}
