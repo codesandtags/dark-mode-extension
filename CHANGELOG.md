@@ -22,6 +22,13 @@ A correctness release, a rebuild of the toolchain, and the first real controls.
 - Logos no longer disappear in dark mode. Dark mode inverts the page and then inverts media back so photographs are not negatives, but that is wrong for logos and icons, which are usually dark ink on a transparent background — counter-inverting one repaints the dark ink onto a now-dark page. Images are now classified and icons are left to invert with the page. The classifier is deliberately biased towards "photograph", since a mis-called photo looks alarming while a mis-called logo is only the status quo.
 - Removed `picture` from the counter-invert list. It wraps the `<img>` that actually renders, so filtering both inverted the image twice and cancelled the correction out.
 
+### Changed — permissions
+
+The 2.0.0 permission set is a strict subset of 1.1.0's, so the update installs silently for existing users rather than being disabled pending re-approval:
+
+- Removed `web_accessible_resources` (see below) and the redundant `activeTab`.
+- Host access stays `*://*/*` rather than widening to `<all_urls>`, which would have added `file:` and `ftp:` and counted as a permission increase.
+
 ### Changed — build system
 
 - Migrated from hand-written MV3 to [WXT](https://wxt.dev) with TypeScript and Vite. The manifest is now generated from `wxt.config.ts`; there is no `manifest.json` to hand-edit. See [docs/adrs/0001](docs/adrs/0001-adopt-wxt-as-extension-framework.md) for why WXT over Plasmo.

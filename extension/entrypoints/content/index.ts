@@ -28,7 +28,8 @@ import "./theme.css";
  * not been injected the user's choice was silently discarded.
  */
 export default defineContentScript({
-  matches: ["<all_urls>"],
+  // Matches host_permissions exactly — see the note in wxt.config.ts.
+  matches: ["*://*/*"],
 
   /**
    * These four options are load-bearing; changing any of them regresses a bug

@@ -65,7 +65,19 @@ export default defineConfig({
      * specific origins that need the resource, never `<all_urls>`.
      */
     permissions: ["storage"],
-    host_permissions: ["<all_urls>"],
+
+    // Scheme-wildcard host access, deliberately NOT `<all_urls>`.
+    //
+    // `<all_urls>` additionally covers file: and ftp:, which would make 2.0.0 a
+    // permission *increase* over the shipped 1.1.0. Chrome disables an extension
+    // for every existing user until they re-approve an increase, and file:
+    // access needs its own opt-in toggle regardless — so the broader pattern
+    // costs real users and buys nothing.
+    //
+    // Keeping this narrow means 2.0.0's permission set is a strict subset of
+    // 1.1.0's: activeTab dropped, web_accessible_resources dropped, nothing
+    // added, so the update installs silently.
+    host_permissions: ["*://*/*"],
 
     ...(browser === "firefox"
       ? {

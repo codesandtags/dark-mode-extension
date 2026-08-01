@@ -11,7 +11,7 @@ Built with [WXT](https://wxt.dev) and TypeScript. Runs on Chrome, Firefox and Ed
 ## Features
 
 - **Four display modes** — Dark, Sepia, Grayscale, or Disabled.
-- **Tune the look** — brightness, contrast, warmth and grayscale sliders.
+- **Tune the look** — brightness, contrast and warmth controls.
 - **Per-site memory** — your choice is remembered for each website.
 - **No flash of white** — the theme is applied before the page renders.
 - **Keeps layouts intact** — sticky headers, modals and popovers keep working.
@@ -32,7 +32,7 @@ https://github.com/codesandtags/dark-mode-extension/assets/5404833/081d8ea0-f086
 ## Permissions
 
 - **storage** — Stores the display mode you picked for each website, so your choice survives restarting the browser. Nothing else is stored, and nothing leaves your device.
-- **host permissions (`<all_urls>`)** — Required to inject the stylesheet on any site you might want to theme, before the page paints. The extension does not read page content and makes no network requests. See [privacy-policy.md](privacy-policy.md).
+- **host permissions (`*://*/*`)** — Required to inject the stylesheet on any site you might want to theme, before the page paints. The extension does not read page content and makes no network requests. See [privacy-policy.md](privacy-policy.md).
 
 ---
 

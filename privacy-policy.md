@@ -16,7 +16,7 @@ This is written to your browser's local extension storage (`chrome.storage.local
 
 The `storage` permission lets the extension remember the display mode you picked for each website, so your choice survives closing the tab or restarting the browser. It is used for nothing else.
 
-### host permissions (`<all_urls>`)
+### host permissions (`*://*/*`)
 
 The extension declares access to all websites, and Chrome will show this as *"Read and change all your data on all websites."*
 
