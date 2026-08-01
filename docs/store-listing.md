@@ -47,20 +47,89 @@ Works on news sites, documentation, dashboards, webmail, forums, wikis and anyth
 
 ## Screenshots
 
-Required: 1280x800 or 640x400, at least one, up to five.
+Export at **exactly 1280×800**, PNG, max five. Order matters — the first is
+shown largest and is the only one many people look at.
 
-The current screenshots are stale — they show the pre-2.0 popup and old version
-numbers. Replace them. Worth capturing, in this order:
+### Choosing sites to demo on
 
-1. **A well-known light site in Dark mode**, popup open. The money shot.
-2. **The appearance controls**, mid-adjustment, so the sliders are legible.
-3. **The "Already dark" state** — a site with its own dark theme, badge and pill
-   visible. This is the differentiator; no competitor screenshot shows it.
-4. **Sepia mode** on an article, for the reading-mode audience.
-5. **A before/after split** of the same page.
+Demo on sites that are **light-only**. Showing the extension applied to YouTube,
+Google Docs or Gmail undercuts the pitch, because those already ship dark themes
+— and on YouTube our own "Already dark" pill appears and says so.
 
-Avoid screenshots that are mostly a wall of small text — they read as noise at
-the size the store renders them.
+Good candidates: Hacker News, long-form documentation, a Substack or newsletter
+post, a recipe or personal blog, a local news site, Craigslist.
+
+Keep other companies' logos small and incidental. A browser extension screenshot
+naturally shows real sites, but the frame should be about *our* UI, not their
+brand.
+
+### Shared style
+
+- Canvas 1280×800, dark neutral background (`#0f1013`) where the capture does
+  not fill the frame.
+- Caption: bold, ~34px, `#f4d35e` on a `#111` rounded pill, 16px radius,
+  20×28px padding.
+- Caption anchored **bottom-centre, 56px from the bottom**, max width 80%. Same
+  position in every frame — it becomes a through-line across the carousel.
+- Crop tight. Full browser chrome wastes half the frame on tabs nobody reads.
+- Never cut a window mid-word at the edge.
+
+### Frame 1 — Before / after (hero)
+
+The single most persuasive image. One site, split down the middle.
+
+- Pick one light-only article page with visible text, a heading and one photo.
+- Set a fixed viewport so both captures align exactly: DevTools → device toolbar
+  → responsive → 1280×800.
+- Capture twice at the **identical scroll position**: once with the extension
+  Off, once with Dark on. Do not scroll between captures.
+- Composite: left 640px from the Off capture, right 640px from the Dark capture,
+  with a 2px `#f4d35e` vertical divider at x=640.
+- Small labels: `BEFORE` top-left, `AFTER` top-right, 20px, semi-transparent
+  white, 24px inset.
+- Caption: **Any website, instantly readable at night**
+
+### Frame 2 — The popup doing the work
+
+Proves it is our extension, not the site's own theme.
+
+- Same kind of light-only site, Dark mode on, popup open.
+- Crop so the popup occupies roughly the right third and is **fully legible** —
+  mode tiles readable, site name readable. Zoom the browser to 110–125% before
+  capturing if needed.
+- The `Dark` tile must be visibly selected (orange).
+- Caption: **One click. Dark, sepia or grayscale.**
+
+### Frame 3 — Appearance controls
+
+- Same site, popup open, Appearance section visible.
+- **Move the sliders off their defaults before capturing** — e.g. Brightness 70%,
+  Contrast 80%, Warmth 30%. Defaults demonstrate nothing.
+- The `Reset` button appears once values are non-default; that is good, it shows
+  the controls are live.
+- Crop tight on the popup, page content softly visible behind for context.
+- Caption: **Tune the brightness, contrast and warmth**
+
+### Frame 4 — Already-dark detection
+
+Our only real differentiator against Dark Reader. It must be *legible*.
+
+- Open a site that has its own dark theme (YouTube is fine here — this is the
+  one frame where that is the point).
+- Popup open, mode `Off`, the green **ALREADY DARK** pill visible.
+- Crop tight around the popup so the pill is unmistakable. This frame should be
+  mostly popup, not mostly page.
+- If the toolbar badge is showing, include it and add a subtle circular
+  highlight around the extension icon.
+- Caption: **Knows when a site already has dark mode**
+
+### Frame 5 — Sepia
+
+Reaches the reading-mode audience, who are a real slice of this market.
+
+- A long-form article, Sepia mode on, popup closed or minimally visible.
+- Show enough body text that the warm tone is obvious.
+- Caption: **Sepia mode for long reading sessions**
 
 ## Category
 
