@@ -1,0 +1,330 @@
+/**
+ * Popup styling.
+ *
+ * Committed to a dark surface rather than following prefers-color-scheme: this
+ * is the control panel of a dark mode extension, and a popup that flashes white
+ * while you are reaching for dark mode is a bad joke.
+ */
+
+:root {
+  --surface: #16171b;
+  --surface-raised: #1e2026;
+  --surface-hover: #262931;
+  --border: #2f333c;
+  --border-strong: #3d424d;
+
+  --text: #f3f4f6;
+  --text-muted: #969ba7;
+
+  --accent: #e8913c;
+  --accent-soft: rgb(232 145 60 / 14%);
+
+  --radius: 10px;
+  --radius-sm: 7px;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 296px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------------------
+ * Header
+ * ----------------------------------------------------------------------- */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header__icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.header__text {
+  min-width: 0;
+}
+
+.header__title {
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.header__site {
+  color: var(--text-muted);
+  font-size: 11.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header__site:empty {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+ * Layout
+ * ----------------------------------------------------------------------- */
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 16px;
+}
+
+.section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.section__label {
+  margin-bottom: 9px;
+  color: var(--text-muted);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.section__head .section__label {
+  margin-bottom: 0;
+}
+
+.section__head + .sliders {
+  margin-top: 12px;
+}
+
+.hint {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.notice {
+  padding: 9px 11px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  font-size: 11.5px;
+}
+
+/* --------------------------------------------------------------------------
+ * Mode tiles
+ * ----------------------------------------------------------------------- */
+
+.modes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.mode input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mode__face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.mode__face:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.mode__icon {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mode__icon-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.mode__name {
+  font-size: 10.5px;
+  font-weight: 500;
+}
+
+.mode input:checked + .mode__face {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Keyboard focus only — the radios are visually hidden, so the ring has to be
+   rendered by the tile they control. */
+.mode input:focus-visible + .mode__face {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.mode input:disabled + .mode__face {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+ * Sliders
+ * ----------------------------------------------------------------------- */
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.slider__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.slider__label {
+  font-size: 12px;
+}
+
+.slider__value {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.slider__input {
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border);
+  appearance: none;
+  cursor: pointer;
+}
+
+.slider__input::-webkit-slider-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  appearance: none;
+  transition: transform 0.12s;
+}
+
+.slider__input::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+.slider__input:hover::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+.slider__input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.slider__input:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* --------------------------------------------------------------------------
+ * Controls
+ * ----------------------------------------------------------------------- */
+
+.reset {
+  padding: 3px 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 10.5px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.reset:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.reset:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+ * Footer
+ * ----------------------------------------------------------------------- */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 10.5px;
+}
+
+.footer__handle {
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
