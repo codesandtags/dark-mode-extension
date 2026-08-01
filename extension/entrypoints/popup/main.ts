@@ -3,12 +3,16 @@ import {
   APPEARANCE_KEY,
   DEFAULT_APPEARANCE,
   MODES,
+  NATIVE_DARK,
   isDefaultAppearance,
   isKnownMode,
+  isNativeDarkState,
   normaliseAppearance,
   siteKey,
+  tabStateKey,
   type Appearance,
   type Mode,
+  type NativeDarkState,
 } from "@/lib/settings";
 
 /**
@@ -50,6 +54,7 @@ const WRITE_DEBOUNCE_MS = 120;
 
 let activeHostname: string | null = null;
 let currentMode: Mode = MODES.DISABLED;
+let nativeDark: NativeDarkState = NATIVE_DARK.UNKNOWN;
 let appearance: Appearance = { ...DEFAULT_APPEARANCE };
 let writeTimer: number | undefined;
 
@@ -132,6 +137,7 @@ function selectMode(mode: Mode) {
 
   currentMode = mode;
   renderAppearanceVisibility();
+  renderNativeDark();
 }
 
 /**
@@ -144,6 +150,67 @@ function selectMode(mode: Mode) {
 function renderAppearanceVisibility() {
   el("appearanceSection").hidden =
     currentMode === MODES.DISABLED || activeHostname === null;
+}
+
+/**
+ * Surfaces whether the site looks after dark mode itself.
+ *
+ * The pill is informational. The warning below it only appears when the user has
+ * actually turned inversion on over a page that is already dark, because that
+ * combination does not just fail to help — it takes a working dark page and
+ * makes it light.
+ */
+function renderNativeDark() {
+  const pill = el("nativeDarkPill");
+  const notice = el("nativeDarkNotice");
+
+  pill.hidden = true;
+  pill.classList.remove("pill--muted");
+  notice.hidden = true;
+
+  if (nativeDark === NATIVE_DARK.ACTIVE) {
+    pill.textContent = "Already dark";
+    pill.title = "This site is rendering its own dark theme";
+    pill.hidden = false;
+
+    if (currentMode === MODES.DARK) {
+      notice.textContent =
+        "This page is already dark. Inverting it will turn it light — Off usually looks better here.";
+      notice.hidden = false;
+    }
+
+    return;
+  }
+
+  if (nativeDark === NATIVE_DARK.AVAILABLE) {
+    pill.textContent = "Has dark theme";
+    pill.title =
+      "This site ships its own dark theme. Its own setting will look better than a colour filter.";
+    pill.classList.add("pill--muted");
+    pill.hidden = false;
+  }
+}
+
+/**
+ * The verdict is written per tab by the service worker. It may legitimately be
+ * missing — the popup can open before the content script has reported, or on a
+ * page where no content script runs at all.
+ */
+async function loadNativeDark(tabId: number | undefined) {
+  if (tabId === undefined) {
+    return;
+  }
+
+  try {
+    const key = tabStateKey(tabId);
+    const stored = await browser.storage.session.get(key);
+
+    if (isNativeDarkState(stored[key])) {
+      nativeDark = stored[key];
+    }
+  } catch (error) {
+    console.error("[dark-mode-enabler] could not read tab state:", error);
+  }
 }
 
 function showNotice(message: string) {
@@ -240,6 +307,7 @@ modeInputs().forEach((radio) => {
     if (isKnownMode(radio.value)) {
       currentMode = radio.value;
       renderAppearanceVisibility();
+      renderNativeDark();
       void saveMode(radio.value);
     }
   });
@@ -280,6 +348,7 @@ async function initialise() {
     }
 
     el("siteName").textContent = activeHostname;
+    await loadNativeDark(tab?.id);
     selectMode(await loadSavedMode(activeHostname));
   } catch (error) {
     console.error("[dark-mode-enabler] could not read the active tab:", error);

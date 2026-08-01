@@ -19,6 +19,14 @@
   --accent: #e8913c;
   --accent-soft: rgb(232 145 60 / 14%);
 
+  --pill-text: #5fcf9e;
+  --pill-bg: rgb(47 158 109 / 16%);
+  --pill-border: rgb(47 158 109 / 45%);
+
+  --warn-text: #f0c674;
+  --warn-bg: rgb(240 198 116 / 12%);
+  --warn-border: rgb(240 198 116 / 35%);
+
   --radius: 10px;
   --radius-sm: 7px;
 
@@ -34,7 +42,7 @@
 }
 
 body {
-  width: 296px;
+  width: 316px;
   background: var(--surface);
   color: var(--text);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -55,6 +63,32 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
+/**
+ * Sits top-right in the header and flags that the site handles dark mode
+ * itself. Green reads as "nothing to do here", which is the intended message —
+ * this is information, not a problem to fix.
+ */
+.pill {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 3px 7px;
+  border: 1px solid var(--pill-border);
+  border-radius: 999px;
+  background: var(--pill-bg);
+  color: var(--pill-text);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pill--muted {
+  border-color: var(--border-strong);
+  background: transparent;
+  color: var(--text-muted);
+}
+
 .header__icon {
   width: 28px;
   height: 28px;
@@ -69,6 +103,7 @@ body {
   font-size: 13.5px;
   font-weight: 600;
   letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
 .header__site {
@@ -131,6 +166,12 @@ body {
   background: var(--surface-raised);
   color: var(--text-muted);
   font-size: 11.5px;
+}
+
+.notice--warn {
+  border-color: var(--warn-border);
+  background: var(--warn-bg);
+  color: var(--warn-text);
 }
 
 /* --------------------------------------------------------------------------
