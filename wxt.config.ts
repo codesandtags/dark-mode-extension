@@ -41,8 +41,13 @@ export default defineConfig({
 
   manifest: ({ browser }) => ({
     name: "Dark Mode Enabler",
+    /**
+     * This is the one-line summary the Chrome Web Store shows under the item
+     * name in search results, capped at 132 characters. Lead with what the user
+     * gets, not with how it works.
+     */
     description:
-      "Enables dark mode and filters on all websites that do not support it natively.",
+      "Dark mode for websites that don't have one. Dark, sepia and grayscale, with brightness and warmth controls for night reading.",
     /**
      * Chrome MV3 requires an object here; Firefox MV2 requires a plain string
      * and AMO rejects the object form.
