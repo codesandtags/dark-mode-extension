@@ -2,7 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [2.0.0] - 2026-08-01
+
+A correctness release, a rebuild of the toolchain, and the first real controls.
 
 ### Added
 
@@ -17,12 +19,6 @@ All notable changes to this project will be documented in this file.
   Detection is informational and never overrides a choice you made. The luminance threshold is measured rather than guessed: real dark themes land at 0.006–0.015 relative luminance, mid-grey `#808080` at 0.216, so the cut sits at 0.15 in the gap between them.
 
   Detection runs twice per page, because many sites decide their theme in JavaScript after first paint.
-
-## [2.0.0] - 2026-08-01
-
-A correctness release, a rebuild of the toolchain, and the first real controls.
-
-### Added
 
 - **Appearance controls** — brightness, contrast and warmth, layered on top of whichever display mode is active. Settings are global rather than per-site, deliberately: per-site appearance is what makes Midnight Lizard exhausting to configure, and global look plus per-site on/off is the model users actually understand.
 
