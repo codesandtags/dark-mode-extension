@@ -6,9 +6,12 @@ This extension does not collect, transmit, or sell any personal information. It 
 
 ## What is stored
 
-The only data the extension stores is the display mode you have chosen for a given website, saved as a hostname and a mode name — for example, `example.com` and `DARK`.
+Two things, both of them settings you chose yourself:
 
-This is written to your browser's local extension storage (`chrome.storage.local`). It is not synced to any server of ours, and it is never shared with third parties. Removing the extension deletes it.
+1. The display mode you picked for a given website, saved as a hostname and a mode name — for example, `example.com` and `DARK`.
+2. Your global appearance settings: brightness, contrast and warmth, saved as three numbers.
+
+That is the entire list. This is written to your browser's local extension storage (`chrome.storage.local`). It is not synced to any server of ours, and it is never shared with third parties. Removing the extension deletes it.
 
 ## Permissions Explained
 

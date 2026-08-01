@@ -135,6 +135,20 @@ Reaches the reading-mode audience, who are a real slice of this market.
 
 Accessibility. Correct as-is; "Productivity" is more crowded and a worse fit.
 
+## Single purpose
+
+Goes in **Privacy → Single purpose**. Reviewers read this to decide whether the
+requested permissions are proportionate, so it must be a *narrow statement of
+purpose*, not a marketing description. Keep it one idea.
+
+```
+Dark Mode Enabler applies a colour filter chosen by the user — dark, sepia, or grayscale — to websites that do not provide a dark theme of their own, so those pages are easier to read in low light. The filter is applied per site and remembered. The extension has no other function.
+```
+
+Do not paste the store description here. The old value was the marketing copy,
+which opened by hedging ("or at least, invert colors") and never actually named
+a single purpose.
+
 ## Permission justifications
 
 Kept in sync with what the manifest actually requests. See `privacy-policy.md`.
