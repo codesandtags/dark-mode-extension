@@ -49,6 +49,7 @@ const BLOCKED_HOSTNAMES = [
 const WRITE_DEBOUNCE_MS = 120;
 
 let activeHostname: string | null = null;
+let currentMode: Mode = MODES.DISABLED;
 let appearance: Appearance = { ...DEFAULT_APPEARANCE };
 let writeTimer: number | undefined;
 
@@ -128,6 +129,21 @@ function selectMode(mode: Mode) {
   if (radio) {
     radio.checked = true;
   }
+
+  currentMode = mode;
+  renderAppearanceVisibility();
+}
+
+/**
+ * Appearance only means anything once a mode is on — the filters it feeds are
+ * declared inside the per-mode rules in theme.css, so with the site off the
+ * sliders move and nothing happens. Showing them anyway reads as broken.
+ *
+ * The settings themselves stay global; this only hides the controls.
+ */
+function renderAppearanceVisibility() {
+  el("appearanceSection").hidden =
+    currentMode === MODES.DISABLED || activeHostname === null;
 }
 
 function showNotice(message: string) {
@@ -222,6 +238,8 @@ async function loadSavedMode(hostname: string): Promise<Mode> {
 modeInputs().forEach((radio) => {
   radio.addEventListener("change", () => {
     if (isKnownMode(radio.value)) {
+      currentMode = radio.value;
+      renderAppearanceVisibility();
       void saveMode(radio.value);
     }
   });
@@ -256,6 +274,7 @@ async function initialise() {
 
     if (!activeHostname) {
       setModeControlsEnabled(false);
+      renderAppearanceVisibility();
       showNotice("This page can't be themed by extensions.");
       return;
     }

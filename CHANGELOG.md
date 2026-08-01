@@ -8,9 +8,13 @@ A correctness release, a rebuild of the toolchain, and the first real controls.
 
 ### Added
 
-- **Appearance controls** — brightness, contrast, warmth and grayscale sliders that layer on top of whichever display mode is active. Settings are global rather than per-site, deliberately: per-site appearance is what makes Midnight Lizard exhausting to configure, and global look plus per-site on/off is the model users actually understand.
+- **Appearance controls** — brightness, contrast and warmth, layered on top of whichever display mode is active. Settings are global rather than per-site, deliberately: per-site appearance is what makes Midnight Lizard exhausting to configure, and global look plus per-site on/off is the model users actually understand.
 
-  Every control only reduces, and the ranges stop at 100%. `brightness()` is a multiplier applied after the inversion, so on an inverted page — where the background has become 0 and the text 255 — anything above 100% is arithmetically a no-op. Contrast does the heavier lifting on a dark page, because lowering it lifts the background off pure black and takes the glare off white text at the same time.
+  Brightness and contrast stop at 100%. `brightness()` is a multiplier applied after the inversion, so on an inverted page — where the background has become 0 and the text 255 — anything above 100% is arithmetically a no-op. Contrast does the heavier lifting on a dark page, because lowering it lifts the background off pure black and takes the glare off white text at the same time.
+
+  There is no grayscale *amount*: grayscale is already one of the display modes, and offering the same effect twice invited people to grab the wrong slider and then wonder why "grayscale" turned the page yellow.
+
+  The whole section is hidden while the site is set to Off, since the filters it feeds only exist inside the per-mode rules — sliders that visibly move and change nothing read as broken.
 - **Redesigned popup** — mode tiles with icons in place of radio buttons, the current site shown in the header, and a reset control that appears only when appearance has been changed.
 
 ### Fixed — images

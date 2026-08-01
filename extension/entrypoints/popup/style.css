@@ -212,17 +212,22 @@ body {
  * Sliders
  * ----------------------------------------------------------------------- */
 
+/**
+ * The gap between groups is deliberately much larger than the gap between a
+ * label and its own track. With them near-equal it was genuinely ambiguous which
+ * slider a track belonged to, and people dragged the wrong one.
+ */
 .sliders {
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 20px;
 }
 
 .slider__head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .slider__label {

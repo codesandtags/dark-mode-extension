@@ -61,7 +61,6 @@ export type Appearance = {
   brightness: number;
   contrast: number;
   sepia: number;
-  grayscale: number;
 };
 
 export type AppearanceKey = keyof Appearance;
@@ -119,21 +118,18 @@ export const APPEARANCE_CONTROLS: ReadonlyArray<{
     max: 100,
     step: 5,
   },
-  {
-    key: "grayscale",
-    label: "Grayscale",
-    hint: "Drains colour",
-    min: 0,
-    max: 100,
-    step: 5,
-  },
 ];
 
+/**
+ * There is deliberately no grayscale *amount*. Grayscale is already one of the
+ * display modes, and offering the same effect twice is both redundant and a live
+ * source of confusion — it is easy to grab the wrong slider and then wonder why
+ * "grayscale" turned the page yellow.
+ */
 export const DEFAULT_APPEARANCE: Appearance = {
   brightness: 100,
   contrast: 100,
   sepia: 0,
-  grayscale: 0,
 };
 
 export function siteKey(hostname: string): string {

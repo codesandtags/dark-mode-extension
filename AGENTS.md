@@ -144,10 +144,19 @@ being good enough, the answer is a per-site override list, not looser thresholds
 
 ### 8. Appearance is global, and composes after the mode
 
-Brightness/contrast/warmth/grayscale live under one `appearance` storage key for
-the whole browser, not per site. This is Dark Reader's model and it is a
-deliberate rejection of Midnight Lizard's per-site everything, which users find
+Brightness/contrast/warmth live under one `appearance` storage key for the whole
+browser, not per site. This is Dark Reader's model and it is a deliberate
+rejection of Midnight Lizard's per-site everything, which users find
 overwhelming.
+
+Two related rules, both from user testing:
+
+- **There is no grayscale slider.** Grayscale is a display *mode*. Exposing the
+  same effect twice led to grabbing the wrong control and being surprised that
+  "grayscale" produced a yellow page — that was Warmth.
+- **The section is hidden while the mode is Off.** The custom properties only
+  feed filters declared inside the per-mode rules, so with the site off the
+  sliders move and nothing happens.
 
 In `theme.css` the mode's own transform runs **first** and the adjustments layer
 on top, so lowering brightness darkens the inverted result rather than the

@@ -139,7 +139,6 @@ export default defineContentScript({
       style.setProperty("--dme-brightness", String(appearance.brightness / 100));
       style.setProperty("--dme-contrast", String(appearance.contrast / 100));
       style.setProperty("--dme-sepia", String(appearance.sepia / 100));
-      style.setProperty("--dme-grayscale", String(appearance.grayscale / 100));
     }
 
     /**

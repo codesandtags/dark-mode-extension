@@ -27,7 +27,6 @@
   --dme-brightness: 1;
   --dme-contrast: 1;
   --dme-sepia: 0;
-  --dme-grayscale: 0;
 }
 
 /**
@@ -60,8 +59,7 @@
 :root[data-dme-mode="dark"],
 :root[data-dme-mode="dark"] :is(dialog:modal, [popover]:popover-open) {
   filter: invert(1) hue-rotate(180deg) brightness(var(--dme-brightness))
-    contrast(var(--dme-contrast)) sepia(var(--dme-sepia))
-    grayscale(var(--dme-grayscale));
+    contrast(var(--dme-contrast)) sepia(var(--dme-sepia));
 }
 
 /**
@@ -107,8 +105,8 @@
 
 :root[data-dme-mode="sepia"],
 :root[data-dme-mode="sepia"] :is(dialog:modal, [popover]:popover-open) {
-  filter: sepia(1) brightness(var(--dme-brightness)) contrast(var(--dme-contrast))
-    grayscale(var(--dme-grayscale));
+  filter: sepia(1) brightness(var(--dme-brightness))
+    contrast(var(--dme-contrast));
 }
 
 :root[data-dme-mode="sepia"] *::selection {
