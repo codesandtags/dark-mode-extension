@@ -53,6 +53,50 @@ export const LEGACY_SYNC_KEY = "darkModeSettings";
 export const MIGRATION_FLAG = "legacyMigrationCompleted";
 
 /**
+ * Whether the page can look after itself.
+ *
+ * - `active`    the page is *currently* rendering dark. Inverting it makes it
+ *               light, which is the single worst thing this extension can do.
+ * - `available` the page is light right now, but ships a dark theme of its own
+ *               that the user could switch to instead.
+ * - `none`      no sign of native support; this is where the extension earns
+ *               its keep.
+ * - `unknown`   detection has not reported yet, or cannot run on this page.
+ */
+export const NATIVE_DARK = {
+  ACTIVE: "active",
+  AVAILABLE: "available",
+  NONE: "none",
+  UNKNOWN: "unknown",
+} as const;
+
+export type NativeDarkState = (typeof NATIVE_DARK)[keyof typeof NATIVE_DARK];
+
+export const NATIVE_DARK_MESSAGE = "dme:native-dark-report";
+
+export type NativeDarkReport = {
+  type: typeof NATIVE_DARK_MESSAGE;
+  state: NativeDarkState;
+};
+
+/**
+ * Detection results are per-tab and worthless after a restart, so they live in
+ * storage.session rather than local. Content scripts do not have access to
+ * session storage by default, which is fine — only the service worker writes it
+ * and only the popup reads it.
+ */
+export function tabStateKey(tabId: number): string {
+  return `tab:${tabId}`;
+}
+
+export function isNativeDarkState(value: unknown): value is NativeDarkState {
+  return (
+    typeof value === "string" &&
+    (Object.values(NATIVE_DARK) as string[]).includes(value)
+  );
+}
+
+/**
  * Appearance is stored as whole percentages because that is what the sliders and
  * their labels use. theme.css wants unitless multipliers, so the content script
  * divides by 100 on the way out.

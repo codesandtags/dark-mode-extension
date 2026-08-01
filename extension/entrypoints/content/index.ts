@@ -1,9 +1,11 @@
 import { classifyImage } from "@/lib/classify-image";
+import { detectNativeDark } from "@/lib/detect-native-dark";
 import {
   APPEARANCE_KEY,
-  DEFAULT_APPEARANCE,
   IMAGE_ATTRIBUTE,
   MODES,
+  NATIVE_DARK,
+  NATIVE_DARK_MESSAGE,
   THEME_ATTRIBUTE,
   THEME_ATTRIBUTE_VALUES,
   isThemedMode,
@@ -11,6 +13,7 @@ import {
   siteKey,
   type Appearance,
   type Mode,
+  type NativeDarkState,
 } from "@/lib/settings";
 
 import "./theme.css";
@@ -78,6 +81,12 @@ export default defineContentScript({
     });
 
     void initialise();
+
+    // Only the top document decides; an embedded frame's colours say nothing
+    // about the page the user is looking at.
+    if (window.top === window.self) {
+      watchNativeDarkSupport();
+    }
 
     async function initialise() {
       try {
@@ -175,6 +184,58 @@ export default defineContentScript({
     }
   },
 });
+
+/**
+ * Reports whether this page handles dark mode itself, so the service worker can
+ * badge the toolbar icon and the popup can warn before the user inverts a page
+ * that is already dark.
+ *
+ * Detection runs twice. Plenty of sites decide their theme in JavaScript after
+ * first paint — reading system preference, restoring a saved choice, hydrating a
+ * framework — so a single check at DOMContentLoaded gets the wrong answer often
+ * enough to matter. The second pass is cheap and only reports if the verdict
+ * actually changed.
+ */
+function watchNativeDarkSupport() {
+  const RECHECK_DELAY_MS = 1500;
+  let lastReported: NativeDarkState | null = null;
+
+  const report = () => {
+    let state: NativeDarkState;
+
+    try {
+      state = detectNativeDark();
+    } catch (error) {
+      console.error("[dark-mode-enabler] native dark detection failed:", error);
+      return;
+    }
+
+    if (state === lastReported) {
+      return;
+    }
+
+    lastReported = state;
+
+    /**
+     * Fire-and-forget. The service worker may be asleep or the extension may be
+     * mid-reload, and a failed badge update is not worth surfacing to anyone.
+     */
+    void browser.runtime
+      .sendMessage({ type: NATIVE_DARK_MESSAGE, state })
+      .catch(() => {});
+  };
+
+  const start = () => {
+    report();
+    window.setTimeout(report, RECHECK_DELAY_MS);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true });
+  } else {
+    start();
+  }
+}
 
 type ImageWatcher = {
   start(): void;

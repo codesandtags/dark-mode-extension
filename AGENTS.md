@@ -20,7 +20,7 @@ wxt.config.ts                        Manifest + per-browser overrides. The manif
                                      is generated; there is no manifest.json to edit.
 extension/                           srcDir
 ├── entrypoints/
-│   ├── background.ts                Service worker. Only job today: storage migration.
+│   ├── background.ts                Storage migration; native-dark badge.
 │   ├── content/
 │   │   ├── index.ts                 Sets data-dme-mode on <html> at document_start.
 │   │   └── theme.css                Every theme rule. Imported by index.ts.
@@ -30,7 +30,8 @@ extension/                           srcDir
 │       └── style.css
 ├── lib/
 │   ├── settings.ts                  Modes, appearance, storage keys. Source of truth.
-│   └── classify-image.ts            Decides icon vs photograph for the counter-invert.
+│   ├── classify-image.ts            Decides icon vs photograph for the counter-invert.
+│   └── detect-native-dark.ts        Does this site already handle dark mode?
 └── public/icon/{16,48,128}.png
 
 docs/adrs/                           Architecture decision records.
@@ -54,6 +55,12 @@ content/index.ts ──<html data-dme-mode="dark">──▶ theme.css applies
 
 There is **no message passing** between the popup and the content script, and
 adding some would be a regression — see the invariants below.
+
+One separate, one-way channel does exist: the content script reports its
+native-dark verdict to the service worker via `runtime.sendMessage`, and the
+worker badges the toolbar icon and stashes the result in `storage.session` for
+the popup to read. That direction is safe because a dropped message costs only a
+missing badge, never a lost setting.
 
 ## Invariants
 
@@ -92,7 +99,26 @@ stacking context and are **not** covered by the root filter. Without explicit
 rules they stay bright white on a dark page. Any new mode added to `theme.css`
 must include them in its selector list.
 
-### 4. The popup owns persistence, not the content script
+### 4. Native dark detection informs; it never overrides
+
+`lib/detect-native-dark.ts` answers two questions: is the page dark *right now*
+(sampled background luminance), and does the site ship a dark theme it is not
+currently using (`color-scheme`, or a `prefers-color-scheme: dark` rule).
+
+The luminance threshold is **0.15**, and it is measured rather than guessed —
+see the table in that file. Real dark themes sit at 0.006–0.015; mid-grey
+`#808080` is 0.216. A 0.35 threshold was tried first and wrongly claimed
+mid-grey pages were dark themes.
+
+The result is surfaced and never acted on. It badges the toolbar icon, and warns
+in the popup when Dark is enabled over an already-dark page. It does **not**
+auto-disable: silently overriding an explicit per-site choice is more confusing
+than the problem it solves.
+
+Only `active` gets a toolbar badge. Badging `available` too would mark a large
+share of the web and train people to ignore it.
+
+### 5. The popup owns persistence, not the content script
 
 v1.1 saved settings from the content script over `tabs.sendMessage`. On pages
 with no content script (`chrome://`, the web store, PDFs) the message never
@@ -102,7 +128,7 @@ never fired, because `sendMessage` reports a missing receiver through
 
 Writing to storage from the popup fixes this and gives cross-tab sync for free.
 
-### 5. Site settings live in `storage.local`, one key per hostname
+### 6. Site settings live in `storage.local`, one key per hostname
 
 `storage.sync` caps a single item at `QUOTA_BYTES_PER_ITEM` (8 KB). v1.1 packed
 every site into one key and started failing silently at roughly 290 hostnames.
@@ -112,7 +138,7 @@ Key format is `site:<hostname>` — see `siteKey()` in `extension/lib/settings.t
 The mode strings are persisted user data; renaming one requires a migration in
 `background.ts`.
 
-### 6. `invert(1)`, not `invert(0.9)`
+### 7. `invert(1)`, not `invert(0.9)`
 
 Media is counter-inverted so photographs are not negatives. That round-trip is
 only exact at full strength; at `0.9` images come back visibly muddied. Softening
@@ -125,7 +151,7 @@ counter-inverted them and left black icons invisible on black backgrounds. So is
 `picture`, which wraps the `<img>` that actually renders; filtering both inverts
 that image twice.
 
-### 7. The image classifier is biased towards "photograph"
+### 8. The image classifier is biased towards "photograph"
 
 `lib/classify-image.ts` decides whether an image is a logo/icon (leave it to
 invert with the page) or a photograph (counter-invert it). Two signals, both
@@ -142,7 +168,7 @@ Keep the bias. A mis-called photograph looks broken to the user; a mis-called
 logo is only what already happened before the classifier existed. When this stops
 being good enough, the answer is a per-site override list, not looser thresholds.
 
-### 8. Appearance is global, and composes after the mode
+### 9. Appearance is global, and composes after the mode
 
 Brightness/contrast/warmth live under one `appearance` storage key for the whole
 browser, not per site. This is Dark Reader's model and it is a deliberate
@@ -162,7 +188,7 @@ In `theme.css` the mode's own transform runs **first** and the adjustments layer
 on top, so lowering brightness darkens the inverted result rather than the
 original page. Reordering that chain silently changes what every slider does.
 
-### 9. Appearance controls only reduce, and the ranges are load-bearing
+### 10. Appearance controls only reduce, and the ranges are load-bearing
 
 Brightness caps at 100 and contrast at 100 for a measured reason, documented in
 `lib/settings.ts`. `brightness()` is a multiplier applied after the inversion, and

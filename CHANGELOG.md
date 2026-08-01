@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+
+- **Native dark mode detection.** The extension now works out whether a site already handles dark mode itself, and says so instead of quietly making things worse.
+
+  This matters because inverting an already-dark page turns it *light* — a worse result than doing nothing. Most of the sites people use daily (X, Reddit, LinkedIn, Facebook, Instagram, Google Drive) ship dark themes, so this was the extension's sharpest edge.
+
+  - A green **✓** badge appears on the toolbar icon when the current page is already dark, with an explanatory tooltip.
+  - The popup shows an **Already dark** pill, and warns if Dark is switched on over a page that is already dark.
+  - Sites that ship a dark theme they are not currently using get a quieter **Has dark theme** pill, since their own setting will always beat a colour filter.
+
+  Detection is informational and never overrides a choice you made. The luminance threshold is measured rather than guessed: real dark themes land at 0.006–0.015 relative luminance, mid-grey `#808080` at 0.216, so the cut sits at 0.15 in the gap between them.
+
+  Detection runs twice per page, because many sites decide their theme in JavaScript after first paint.
+
 ## [2.0.0] - 2026-08-01
 
 A correctness release, a rebuild of the toolchain, and the first real controls.
