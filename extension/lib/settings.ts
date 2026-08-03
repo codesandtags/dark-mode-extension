@@ -130,34 +130,39 @@ export type AppearanceKey = keyof Appearance;
  * Allowing 150% shipped briefly and read as broken, because half of each slider
  * did nothing. Reducing glare is the whole job; the ranges now match it.
  */
+/**
+ * `labelKey` and `hintKey` are _locales message names, not display strings. The
+ * popup resolves them through browser.i18n; nothing else in the codebase needs
+ * text, so the translation layer stays at the edge.
+ */
 export const APPEARANCE_CONTROLS: ReadonlyArray<{
   key: AppearanceKey;
-  label: string;
-  hint: string;
+  labelKey: string;
+  hintKey: string;
   min: number;
   max: number;
   step: number;
 }> = [
   {
     key: "brightness",
-    label: "Brightness",
-    hint: "Dims the page",
+    labelKey: "controlBrightness",
+    hintKey: "hintBrightness",
     min: 50,
     max: 100,
     step: 5,
   },
   {
     key: "contrast",
-    label: "Contrast",
-    hint: "Softens pure black and white",
+    labelKey: "controlContrast",
+    hintKey: "hintContrast",
     min: 60,
     max: 100,
     step: 5,
   },
   {
     key: "sepia",
-    label: "Warmth",
-    hint: "Cuts blue light",
+    labelKey: "controlWarmth",
+    hintKey: "hintWarmth",
     min: 0,
     max: 100,
     step: 5,

@@ -42,12 +42,16 @@ export default defineConfig({
   manifest: ({ browser }) => ({
     name: "Dark Mode Enabler",
     /**
-     * This is the one-line summary the Chrome Web Store shows under the item
-     * name in search results, capped at 132 characters. Lead with what the user
-     * gets, not with how it works.
+     * Localised. The store shows the summary for the visitor's own locale and
+     * indexes it for search there, so this is what makes the listing findable
+     * outside English — see extension/public/_locales.
+     *
+     * `name` is deliberately NOT localised: it is the product name, it is what
+     * existing users recognise, and renaming a published item resets whatever
+     * search history it has accumulated.
      */
-    description:
-      "Dark mode for websites that don't have one. Dark, sepia and grayscale, with brightness and warmth controls for night reading.",
+    default_locale: "en",
+    description: "__MSG_extDescription__",
     /**
      * Chrome MV3 requires an object here; Firefox MV2 requires a plain string
      * and AMO rejects the object form.

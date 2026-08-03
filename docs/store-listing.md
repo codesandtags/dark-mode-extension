@@ -12,6 +12,42 @@ rebuild — the dashboard field is read-only.
 Dark mode for websites that don't have one. Dark, sepia and grayscale, with brightness and warmth controls for night reading.
 ```
 
+## Localised listings — the part that actually drives discovery
+
+Shipping `_locales` translates the **extension**. It does *not* translate the
+**store listing**, which is a separate thing you fill in per language in the
+dashboard. Doing only the first gets you a translated popup that nobody in that
+language can find.
+
+In the dashboard: **Store listing → language dropdown (top of the page) → add a
+language → fill in Description**. The Summary is taken from
+`manifest.description` and is already localised by the shipped `_locales`.
+
+Chrome Web Store search is per-locale, so a listing that exists only in English
+appears only in English searches. This is the single highest-leverage lever on
+impressions, which is the actual bottleneck — the listing already converts at
+~49%, so the problem was never the copy.
+
+Priority order, based on where users already are despite an English-only
+listing: **es, ru, pt-BR** first, then de, fr, it, ja, ko, zh-CN, tr, pl, id.
+
+The search terms people actually type, worth having in the localised body copy:
+
+| Locale | Terms |
+| --- | --- |
+| es | modo oscuro, tema oscuro, modo nocturno |
+| pt-BR | modo escuro, tema escuro, modo noturno |
+| ru | тёмная тема, ночной режим |
+| de | Dunkelmodus, Nachtmodus, dunkles Design |
+| fr | mode sombre, thème sombre, mode nuit |
+| it | modalità scura, tema scuro |
+| ja | ダークモード, 夜間モード |
+| ko | 다크 모드, 야간 모드 |
+| zh-CN | 深色模式, 夜间模式, 暗黑模式 |
+| tr | karanlık mod, gece modu |
+| pl | tryb ciemny, tryb nocny |
+| id | mode gelap, tema gelap |
+
 ## Description
 
 Copy the block below into **Store listing → Description**.

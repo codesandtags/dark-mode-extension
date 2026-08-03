@@ -1,3 +1,4 @@
+import { localiseDocument, t } from "@/lib/i18n";
 import {
   APPEARANCE_CONTROLS,
   APPEARANCE_KEY,
@@ -85,8 +86,8 @@ function buildSliders() {
     const label = document.createElement("label");
     label.className = "slider__label";
     label.htmlFor = `slider-${control.key}`;
-    label.textContent = control.label;
-    label.title = control.hint;
+    label.textContent = t(control.labelKey);
+    label.title = t(control.hintKey);
 
     const value = document.createElement("output");
     value.className = "slider__value";
@@ -169,13 +170,12 @@ function renderNativeDark() {
   notice.hidden = true;
 
   if (nativeDark === NATIVE_DARK.ACTIVE) {
-    pill.textContent = "Already dark";
-    pill.title = "This site is rendering its own dark theme";
+    pill.textContent = t("pillAlreadyDark");
+    pill.title = t("pillAlreadyDarkTitle");
     pill.hidden = false;
 
     if (currentMode === MODES.DARK) {
-      notice.textContent =
-        "This page is already dark. Inverting it will turn it light — Off usually looks better here.";
+      notice.textContent = t("noticeAlreadyDark");
       notice.hidden = false;
     }
 
@@ -183,9 +183,8 @@ function renderNativeDark() {
   }
 
   if (nativeDark === NATIVE_DARK.AVAILABLE) {
-    pill.textContent = "Has dark theme";
-    pill.title =
-      "This site ships its own dark theme. Its own setting will look better than a colour filter.";
+    pill.textContent = t("pillHasDarkTheme");
+    pill.title = t("pillHasDarkThemeTitle");
     pill.classList.add("pill--muted");
     pill.hidden = false;
   }
@@ -242,7 +241,7 @@ function queueAppearanceWrite() {
       await browser.storage.local.set({ [APPEARANCE_KEY]: appearance });
     } catch (error) {
       console.error("[dark-mode-enabler] could not save appearance:", error);
-      showNotice("Could not save your preference. Please try again.");
+      showNotice(t("noticeSaveFailed"));
     }
   }, WRITE_DEBOUNCE_MS);
 }
@@ -256,7 +255,7 @@ async function saveMode(mode: Mode) {
     await browser.storage.local.set({ [siteKey(activeHostname)]: mode });
   } catch (error) {
     console.error("[dark-mode-enabler] could not save setting:", error);
-    showNotice("Could not save your preference. Please try again.");
+    showNotice(t("noticeSaveFailed"));
   }
 }
 
@@ -320,6 +319,7 @@ el("resetAppearance").addEventListener("click", () => {
 });
 
 async function initialise() {
+  localiseDocument();
   buildSliders();
   el("versionNumber").textContent = `v${browser.runtime.getManifest().version}`;
 
@@ -343,7 +343,7 @@ async function initialise() {
     if (!activeHostname) {
       setModeControlsEnabled(false);
       renderAppearanceVisibility();
-      showNotice("This page can't be themed by extensions.");
+      showNotice(t("noticeUnsupported"));
       return;
     }
 
@@ -353,7 +353,7 @@ async function initialise() {
   } catch (error) {
     console.error("[dark-mode-enabler] could not read the active tab:", error);
     setModeControlsEnabled(false);
-    showNotice("Could not read the current tab.");
+    showNotice(t("noticeTabError"));
   }
 }
 

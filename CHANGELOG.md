@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - 2026-08-03
+
+### Added
+
+- **Thirteen languages.** The popup, tooltips and store summary are now translated into Spanish, Portuguese (Brazil), Russian, German, French, Italian, Japanese, Korean, Simplified Chinese, Turkish, Polish and Indonesian, alongside English.
+
+  This is as much about being found as about being read: the Chrome Web Store indexes each locale's listing separately, so an English-only summary is invisible to somebody searching *modo oscuro* or *тёмная тема*. A third of existing users were already outside `en-US` despite an English-only listing.
+
+  Translations are generated from a single source (`scripts/generate-locales.mjs`) which fails the build if any locale drifts from the English base or exceeds the store's 132-character summary limit.
+
+  The extension name is deliberately not translated — renaming a published item discards the store search history it has accumulated.
+
+### Notes
+
+- No permission changes. `["storage"]` and `*://*/*` as before, so the update installs silently.
+
 ## [2.0.0] - 2026-08-01
 
 A correctness release, a rebuild of the toolchain, and the first real controls.

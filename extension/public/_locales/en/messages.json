@@ -1,0 +1,87 @@
+{
+  "extDescription": {
+    "message": "Dark mode for websites that don't have one. Dark, sepia and grayscale, with brightness and warmth controls for night reading.",
+    "description": "Chrome Web Store summary shown under the item name. HARD LIMIT 132 characters in every locale."
+  },
+  "sectionDisplayMode": {
+    "message": "Display mode"
+  },
+  "modeOff": {
+    "message": "Off",
+    "description": "Mode tile label. Keep under ~10 characters — it sits in a narrow 4-column grid."
+  },
+  "modeDark": {
+    "message": "Dark",
+    "description": "Mode tile label. Keep short, see modeOff."
+  },
+  "modeSepia": {
+    "message": "Sepia",
+    "description": "Mode tile label. Keep short, see modeOff."
+  },
+  "modeGrayscale": {
+    "message": "Gray",
+    "description": "Mode tile label. Keep short, see modeOff."
+  },
+  "sectionAppearance": {
+    "message": "Appearance"
+  },
+  "actionReset": {
+    "message": "Reset"
+  },
+  "controlBrightness": {
+    "message": "Brightness"
+  },
+  "controlContrast": {
+    "message": "Contrast"
+  },
+  "controlWarmth": {
+    "message": "Warmth",
+    "description": "Slider label. Adds a sepia tint to cut blue light; not literally 'temperature'."
+  },
+  "hintBrightness": {
+    "message": "Dims the page"
+  },
+  "hintContrast": {
+    "message": "Softens pure black and white",
+    "description": "Tooltip. Lowering contrast lifts pure black towards grey and takes the glare off white text."
+  },
+  "hintWarmth": {
+    "message": "Cuts blue light"
+  },
+  "appearanceScope": {
+    "message": "Applies to every site."
+  },
+  "noticeUnsupported": {
+    "message": "This page can't be themed by extensions."
+  },
+  "noticeTabError": {
+    "message": "Could not read the current tab."
+  },
+  "noticeSaveFailed": {
+    "message": "Could not save your preference. Please try again."
+  },
+  "pillAlreadyDark": {
+    "message": "Already dark",
+    "description": "Badge in the popup header. Very short — under 16 characters."
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "This site is rendering its own dark theme"
+  },
+  "pillHasDarkTheme": {
+    "message": "Has dark theme",
+    "description": "Badge in the popup header. Very short — under 16 characters."
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "This site ships its own dark theme. Its own setting will look better than a colour filter."
+  },
+  "noticeAlreadyDark": {
+    "message": "This page is already dark. Inverting it will turn it light — Off usually looks better here.",
+    "description": "Shown when the user has Dark switched on over a page that is already dark."
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler — this site already has its own dark theme"
+  },
+  "footerDevelopedBy": {
+    "message": "Developed by"
+  }
+}

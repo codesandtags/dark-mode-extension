@@ -1,0 +1,77 @@
+{
+  "extDescription": {
+    "message": "为没有深色模式的网站提供深色模式。深色、棕褐色和灰度，并可调节亮度与暖色。"
+  },
+  "sectionDisplayMode": {
+    "message": "显示模式"
+  },
+  "modeOff": {
+    "message": "关闭"
+  },
+  "modeDark": {
+    "message": "深色"
+  },
+  "modeSepia": {
+    "message": "棕褐"
+  },
+  "modeGrayscale": {
+    "message": "灰度"
+  },
+  "sectionAppearance": {
+    "message": "外观"
+  },
+  "actionReset": {
+    "message": "重置"
+  },
+  "controlBrightness": {
+    "message": "亮度"
+  },
+  "controlContrast": {
+    "message": "对比度"
+  },
+  "controlWarmth": {
+    "message": "暖色"
+  },
+  "hintBrightness": {
+    "message": "调暗页面"
+  },
+  "hintContrast": {
+    "message": "柔化纯黑与纯白"
+  },
+  "hintWarmth": {
+    "message": "减少蓝光"
+  },
+  "appearanceScope": {
+    "message": "适用于所有网站。"
+  },
+  "noticeUnsupported": {
+    "message": "扩展程序无法修改此页面。"
+  },
+  "noticeTabError": {
+    "message": "无法读取当前标签页。"
+  },
+  "noticeSaveFailed": {
+    "message": "无法保存偏好设置，请重试。"
+  },
+  "pillAlreadyDark": {
+    "message": "已是深色"
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "该网站已在使用自己的深色主题"
+  },
+  "pillHasDarkTheme": {
+    "message": "有深色主题"
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "该网站自带深色主题。使用网站自身的设置会比颜色滤镜更好看。"
+  },
+  "noticeAlreadyDark": {
+    "message": "此页面已是深色，反转会让它变亮。这里通常选择“关闭”更合适。"
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler — 该网站已自带深色主题"
+  },
+  "footerDevelopedBy": {
+    "message": "开发者"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "extDescription": {
+    "message": "Mode sombre pour les sites qui n'en ont pas. Sombre, sépia et niveaux de gris, avec luminosité et chaleur."
+  },
+  "sectionDisplayMode": {
+    "message": "Mode d'affichage"
+  },
+  "modeOff": {
+    "message": "Arrêt"
+  },
+  "modeDark": {
+    "message": "Sombre"
+  },
+  "modeSepia": {
+    "message": "Sépia"
+  },
+  "modeGrayscale": {
+    "message": "Gris"
+  },
+  "sectionAppearance": {
+    "message": "Apparence"
+  },
+  "actionReset": {
+    "message": "Réinitialiser"
+  },
+  "controlBrightness": {
+    "message": "Luminosité"
+  },
+  "controlContrast": {
+    "message": "Contraste"
+  },
+  "controlWarmth": {
+    "message": "Chaleur"
+  },
+  "hintBrightness": {
+    "message": "Assombrit la page"
+  },
+  "hintContrast": {
+    "message": "Adoucit le noir et le blanc purs"
+  },
+  "hintWarmth": {
+    "message": "Réduit la lumière bleue"
+  },
+  "appearanceScope": {
+    "message": "S'applique à tous les sites."
+  },
+  "noticeUnsupported": {
+    "message": "Les extensions ne peuvent pas modifier cette page."
+  },
+  "noticeTabError": {
+    "message": "Impossible de lire l'onglet actuel."
+  },
+  "noticeSaveFailed": {
+    "message": "Impossible d'enregistrer votre préférence. Réessayez."
+  },
+  "pillAlreadyDark": {
+    "message": "Déjà sombre"
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "Ce site affiche déjà son propre thème sombre"
+  },
+  "pillHasDarkTheme": {
+    "message": "Thème sombre"
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "Ce site propose son propre thème sombre. Son réglage sera meilleur qu'un filtre de couleur."
+  },
+  "noticeAlreadyDark": {
+    "message": "Cette page est déjà sombre. L'inverser la rendra claire — « Arrêt » convient mieux ici."
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler — ce site a déjà son propre thème sombre"
+  },
+  "footerDevelopedBy": {
+    "message": "Développé par"
+  }
+}

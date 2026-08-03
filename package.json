@@ -1,6 +1,6 @@
 {
   "name": "dark-mode-enabler",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Chrome extension designed to help you enable Dark Mode or at least, invert colors to release your eyes from the white light of the screen.",
   "type": "module",
   "scripts": {
@@ -18,7 +18,8 @@
     "postinstall": "wxt prepare",
     "site:dev": "vite",
     "site:build": "vite build",
-    "site:deploy": "gh-pages -d dist"
+    "site:deploy": "gh-pages -d dist",
+    "locales": "node scripts/generate-locales.mjs"
   },
   "licenses": [
     {

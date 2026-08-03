@@ -1,0 +1,77 @@
+{
+  "extDescription": {
+    "message": "ダークモードのないサイトを暗くします。ダーク・セピア・グレースケール、明るさと暖かさの調整付き。"
+  },
+  "sectionDisplayMode": {
+    "message": "表示モード"
+  },
+  "modeOff": {
+    "message": "オフ"
+  },
+  "modeDark": {
+    "message": "ダーク"
+  },
+  "modeSepia": {
+    "message": "セピア"
+  },
+  "modeGrayscale": {
+    "message": "グレー"
+  },
+  "sectionAppearance": {
+    "message": "外観"
+  },
+  "actionReset": {
+    "message": "リセット"
+  },
+  "controlBrightness": {
+    "message": "明るさ"
+  },
+  "controlContrast": {
+    "message": "コントラスト"
+  },
+  "controlWarmth": {
+    "message": "暖かさ"
+  },
+  "hintBrightness": {
+    "message": "ページを暗くします"
+  },
+  "hintContrast": {
+    "message": "純粋な黒と白をやわらげます"
+  },
+  "hintWarmth": {
+    "message": "ブルーライトを減らします"
+  },
+  "appearanceScope": {
+    "message": "すべてのサイトに適用されます。"
+  },
+  "noticeUnsupported": {
+    "message": "このページは拡張機能で変更できません。"
+  },
+  "noticeTabError": {
+    "message": "現在のタブを読み取れませんでした。"
+  },
+  "noticeSaveFailed": {
+    "message": "設定を保存できませんでした。もう一度お試しください。"
+  },
+  "pillAlreadyDark": {
+    "message": "すでにダーク"
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "このサイトは独自のダークテーマを表示しています"
+  },
+  "pillHasDarkTheme": {
+    "message": "ダークテーマあり"
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "このサイトには独自のダークテーマがあります。サイト側の設定のほうがきれいに表示されます。"
+  },
+  "noticeAlreadyDark": {
+    "message": "このページはすでに暗いため、反転すると明るくなります。ここでは「オフ」が適しています。"
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler — このサイトには独自のダークテーマがあります"
+  },
+  "footerDevelopedBy": {
+    "message": "開発者"
+  }
+}

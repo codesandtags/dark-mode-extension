@@ -1,0 +1,77 @@
+{
+  "extDescription": {
+    "message": "Mode gelap untuk situs yang belum punya. Gelap, sepia, dan skala abu-abu, dengan kontrol kecerahan dan kehangatan."
+  },
+  "sectionDisplayMode": {
+    "message": "Mode tampilan"
+  },
+  "modeOff": {
+    "message": "Mati"
+  },
+  "modeDark": {
+    "message": "Gelap"
+  },
+  "modeSepia": {
+    "message": "Sepia"
+  },
+  "modeGrayscale": {
+    "message": "Abu-abu"
+  },
+  "sectionAppearance": {
+    "message": "Tampilan"
+  },
+  "actionReset": {
+    "message": "Atur ulang"
+  },
+  "controlBrightness": {
+    "message": "Kecerahan"
+  },
+  "controlContrast": {
+    "message": "Kontras"
+  },
+  "controlWarmth": {
+    "message": "Kehangatan"
+  },
+  "hintBrightness": {
+    "message": "Meredupkan halaman"
+  },
+  "hintContrast": {
+    "message": "Melembutkan hitam dan putih pekat"
+  },
+  "hintWarmth": {
+    "message": "Mengurangi cahaya biru"
+  },
+  "appearanceScope": {
+    "message": "Berlaku untuk semua situs."
+  },
+  "noticeUnsupported": {
+    "message": "Ekstensi tidak dapat mengubah halaman ini."
+  },
+  "noticeTabError": {
+    "message": "Tidak dapat membaca tab saat ini."
+  },
+  "noticeSaveFailed": {
+    "message": "Preferensi gagal disimpan. Silakan coba lagi."
+  },
+  "pillAlreadyDark": {
+    "message": "Sudah gelap"
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "Situs ini sudah menampilkan tema gelapnya sendiri"
+  },
+  "pillHasDarkTheme": {
+    "message": "Punya tema gelap"
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "Situs ini punya tema gelap sendiri. Pengaturannya akan terlihat lebih baik daripada filter warna."
+  },
+  "noticeAlreadyDark": {
+    "message": "Halaman ini sudah gelap. Membalikkannya justru membuatnya terang — pilih Mati di sini."
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler — situs ini sudah punya tema gelapnya sendiri"
+  },
+  "footerDevelopedBy": {
+    "message": "Dibuat oleh"
+  }
+}
