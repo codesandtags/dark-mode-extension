@@ -31,8 +31,13 @@ extension/                           srcDir
 ├── lib/
 │   ├── settings.ts                  Modes, appearance, storage keys. Source of truth.
 │   ├── classify-image.ts            Decides icon vs photograph for the counter-invert.
-│   └── detect-native-dark.ts        Does this site already handle dark mode?
-└── public/icon/{16,48,128}.png
+│   ├── detect-native-dark.ts        Does this site already handle dark mode?
+│   └── i18n.ts                      t() and data-i18n resolution.
+└── public/
+    ├── icon/{16,48,128}.png
+    └── _locales/<locale>/messages.json   GENERATED — see scripts/generate-locales.mjs
+
+scripts/generate-locales.mjs         Source of every translation. Edit this, not the JSON.
 
 docs/adrs/                           Architecture decision records.
 website/, index.html, vite.config.js Marketing site (not the extension).
@@ -207,6 +212,40 @@ A 50–150 range shipped briefly and read as broken, because half of each slider
 did nothing on a normal page. If someone asks to "let users brighten more", the
 answer is not a wider range — it is a different filter function, because
 multiplication cannot lift black.
+
+## Translations
+
+Thirteen locales: en (base), es, pt_BR, ru, de, fr, it, ja, ko, zh_CN, tr, pl,
+id.
+
+**`extension/public/_locales/**/messages.json` is generated. Never edit it.**
+Every string lives in `scripts/generate-locales.mjs`; change it there and run:
+
+```bash
+npm run locales
+```
+
+The generator is also the validator. It exits non-zero if a locale is missing a
+key the English base has, has a key the base does not, or if `extDescription`
+exceeds the Chrome Web Store's 132-character limit in any locale. That is why
+message names are typed loosely in `lib/i18n.ts` — correctness is enforced at
+build time rather than by TypeScript.
+
+Adding a string means: add it to **every** locale in the generator, tag the
+markup with `data-i18n="yourKey"` (or `data-i18n-title` for tooltips), or call
+`t("yourKey")` from TypeScript.
+
+Two things that are deliberately **not** translated:
+
+- **The extension name.** It is the product name, it is what existing users
+  recognise, and renaming a published Chrome Web Store item discards the search
+  history it has built up.
+- **Anything in the content script.** It has no UI. Keeping i18n out of it keeps
+  the `document_start` critical path as small as possible.
+
+The mode tiles sit in a narrow four-column grid. After changing any `mode*`
+string, check that no label overflows — every current locale fits, including
+`Desligado` and `Выкл.`.
 
 ## Conventions
 

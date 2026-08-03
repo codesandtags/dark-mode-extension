@@ -1,0 +1,77 @@
+{
+  "extDescription": {
+    "message": "Modo oscuro para sitios que no lo tienen. Oscuro, sepia y escala de grises, con controles de brillo y calidez."
+  },
+  "sectionDisplayMode": {
+    "message": "Modo de visualización"
+  },
+  "modeOff": {
+    "message": "Apagado"
+  },
+  "modeDark": {
+    "message": "Oscuro"
+  },
+  "modeSepia": {
+    "message": "Sepia"
+  },
+  "modeGrayscale": {
+    "message": "Grises"
+  },
+  "sectionAppearance": {
+    "message": "Apariencia"
+  },
+  "actionReset": {
+    "message": "Restablecer"
+  },
+  "controlBrightness": {
+    "message": "Brillo"
+  },
+  "controlContrast": {
+    "message": "Contraste"
+  },
+  "controlWarmth": {
+    "message": "Calidez"
+  },
+  "hintBrightness": {
+    "message": "Atenúa la página"
+  },
+  "hintContrast": {
+    "message": "Suaviza el negro y el blanco puros"
+  },
+  "hintWarmth": {
+    "message": "Reduce la luz azul"
+  },
+  "appearanceScope": {
+    "message": "Se aplica a todos los sitios."
+  },
+  "noticeUnsupported": {
+    "message": "Las extensiones no pueden modificar esta página."
+  },
+  "noticeTabError": {
+    "message": "No se pudo leer la pestaña actual."
+  },
+  "noticeSaveFailed": {
+    "message": "No se pudo guardar tu preferencia. Inténtalo de nuevo."
+  },
+  "pillAlreadyDark": {
+    "message": "Ya es oscuro"
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "Este sitio ya muestra su propio tema oscuro"
+  },
+  "pillHasDarkTheme": {
+    "message": "Tiene tema oscuro"
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "Este sitio incluye su propio tema oscuro. Su ajuste se verá mejor que un filtro de color."
+  },
+  "noticeAlreadyDark": {
+    "message": "Esta página ya es oscura. Invertirla la volverá clara: aquí suele verse mejor con Apagado."
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler: este sitio ya tiene su propio tema oscuro"
+  },
+  "footerDevelopedBy": {
+    "message": "Desarrollado por"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "extDescription": {
+    "message": "Dunkelmodus für Websites ohne eigenen. Dunkel, Sepia und Graustufen, mit Helligkeits- und Wärmereglern."
+  },
+  "sectionDisplayMode": {
+    "message": "Anzeigemodus"
+  },
+  "modeOff": {
+    "message": "Aus"
+  },
+  "modeDark": {
+    "message": "Dunkel"
+  },
+  "modeSepia": {
+    "message": "Sepia"
+  },
+  "modeGrayscale": {
+    "message": "Grau"
+  },
+  "sectionAppearance": {
+    "message": "Darstellung"
+  },
+  "actionReset": {
+    "message": "Zurücksetzen"
+  },
+  "controlBrightness": {
+    "message": "Helligkeit"
+  },
+  "controlContrast": {
+    "message": "Kontrast"
+  },
+  "controlWarmth": {
+    "message": "Wärme"
+  },
+  "hintBrightness": {
+    "message": "Dimmt die Seite"
+  },
+  "hintContrast": {
+    "message": "Mildert reines Schwarz und Weiß"
+  },
+  "hintWarmth": {
+    "message": "Reduziert blaues Licht"
+  },
+  "appearanceScope": {
+    "message": "Gilt für alle Websites."
+  },
+  "noticeUnsupported": {
+    "message": "Erweiterungen können diese Seite nicht anpassen."
+  },
+  "noticeTabError": {
+    "message": "Der aktuelle Tab konnte nicht gelesen werden."
+  },
+  "noticeSaveFailed": {
+    "message": "Einstellung konnte nicht gespeichert werden. Bitte erneut versuchen."
+  },
+  "pillAlreadyDark": {
+    "message": "Schon dunkel"
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "Diese Website zeigt bereits ihr eigenes dunkles Design"
+  },
+  "pillHasDarkTheme": {
+    "message": "Hat dunkles Design"
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "Diese Website bringt ein eigenes dunkles Design mit. Deren Einstellung sieht besser aus als ein Farbfilter."
+  },
+  "noticeAlreadyDark": {
+    "message": "Diese Seite ist bereits dunkel. Invertieren macht sie hell — hier ist „Aus“ meist besser."
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler — diese Website hat bereits ihr eigenes dunkles Design"
+  },
+  "footerDevelopedBy": {
+    "message": "Entwickelt von"
+  }
+}

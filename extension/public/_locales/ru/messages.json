@@ -1,0 +1,77 @@
+{
+  "extDescription": {
+    "message": "Тёмная тема для сайтов, у которых её нет. Тёмный, сепия и оттенки серого, с настройкой яркости и теплоты."
+  },
+  "sectionDisplayMode": {
+    "message": "Режим отображения"
+  },
+  "modeOff": {
+    "message": "Выкл."
+  },
+  "modeDark": {
+    "message": "Тёмный"
+  },
+  "modeSepia": {
+    "message": "Сепия"
+  },
+  "modeGrayscale": {
+    "message": "Серый"
+  },
+  "sectionAppearance": {
+    "message": "Оформление"
+  },
+  "actionReset": {
+    "message": "Сбросить"
+  },
+  "controlBrightness": {
+    "message": "Яркость"
+  },
+  "controlContrast": {
+    "message": "Контраст"
+  },
+  "controlWarmth": {
+    "message": "Теплота"
+  },
+  "hintBrightness": {
+    "message": "Приглушает страницу"
+  },
+  "hintContrast": {
+    "message": "Смягчает чистый чёрный и белый"
+  },
+  "hintWarmth": {
+    "message": "Снижает синий свет"
+  },
+  "appearanceScope": {
+    "message": "Применяется ко всем сайтам."
+  },
+  "noticeUnsupported": {
+    "message": "Расширения не могут изменять эту страницу."
+  },
+  "noticeTabError": {
+    "message": "Не удалось прочитать текущую вкладку."
+  },
+  "noticeSaveFailed": {
+    "message": "Не удалось сохранить настройку. Попробуйте ещё раз."
+  },
+  "pillAlreadyDark": {
+    "message": "Уже тёмный"
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "На этом сайте уже включена своя тёмная тема"
+  },
+  "pillHasDarkTheme": {
+    "message": "Есть тёмная тема"
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "У сайта есть своя тёмная тема. Его собственная настройка выглядит лучше цветового фильтра."
+  },
+  "noticeAlreadyDark": {
+    "message": "Страница уже тёмная. Инверсия сделает её светлой — здесь лучше выбрать «Выкл.»."
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler — у этого сайта уже есть своя тёмная тема"
+  },
+  "footerDevelopedBy": {
+    "message": "Разработано"
+  }
+}

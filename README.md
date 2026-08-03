@@ -12,6 +12,7 @@ Built with [WXT](https://wxt.dev) and TypeScript. Runs on Chrome, Firefox and Ed
 
 - **Four display modes** — Dark, Sepia, Grayscale, or Disabled.
 - **Knows when to stay out of the way** — badges sites that already have their own dark theme, so you don't invert a dark page into a light one.
+- **13 languages** — English, Spanish, Portuguese (BR), Russian, German, French, Italian, Japanese, Korean, Chinese (Simplified), Turkish, Polish and Indonesian.
 - **Tune the look** — brightness, contrast and warmth controls.
 - **Per-site memory** — your choice is remembered for each website.
 - **No flash of white** — the theme is applied before the page renders.

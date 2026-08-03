@@ -1,0 +1,77 @@
+{
+  "extDescription": {
+    "message": "Koyu modu olmayan siteler için koyu mod. Koyu, sepya ve gri tonlama; parlaklık ve sıcaklık ayarlarıyla."
+  },
+  "sectionDisplayMode": {
+    "message": "Görünüm modu"
+  },
+  "modeOff": {
+    "message": "Kapalı"
+  },
+  "modeDark": {
+    "message": "Koyu"
+  },
+  "modeSepia": {
+    "message": "Sepya"
+  },
+  "modeGrayscale": {
+    "message": "Gri"
+  },
+  "sectionAppearance": {
+    "message": "Görünüm"
+  },
+  "actionReset": {
+    "message": "Sıfırla"
+  },
+  "controlBrightness": {
+    "message": "Parlaklık"
+  },
+  "controlContrast": {
+    "message": "Kontrast"
+  },
+  "controlWarmth": {
+    "message": "Sıcaklık"
+  },
+  "hintBrightness": {
+    "message": "Sayfayı karartır"
+  },
+  "hintContrast": {
+    "message": "Saf siyah ve beyazı yumuşatır"
+  },
+  "hintWarmth": {
+    "message": "Mavi ışığı azaltır"
+  },
+  "appearanceScope": {
+    "message": "Tüm sitelere uygulanır."
+  },
+  "noticeUnsupported": {
+    "message": "Uzantılar bu sayfayı değiştiremez."
+  },
+  "noticeTabError": {
+    "message": "Geçerli sekme okunamadı."
+  },
+  "noticeSaveFailed": {
+    "message": "Tercihiniz kaydedilemedi. Lütfen tekrar deneyin."
+  },
+  "pillAlreadyDark": {
+    "message": "Zaten koyu"
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "Bu site kendi koyu temasını gösteriyor"
+  },
+  "pillHasDarkTheme": {
+    "message": "Koyu teması var"
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "Bu sitenin kendi koyu teması var. Sitenin kendi ayarı renk filtresinden daha iyi görünür."
+  },
+  "noticeAlreadyDark": {
+    "message": "Bu sayfa zaten koyu. Ters çevirmek onu aydınlatır — burada Kapalı daha iyi görünür."
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler — bu sitenin kendi koyu teması zaten var"
+  },
+  "footerDevelopedBy": {
+    "message": "Geliştiren"
+  }
+}

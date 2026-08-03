@@ -1,0 +1,77 @@
+{
+  "extDescription": {
+    "message": "Modalità scura per i siti che non ce l'hanno. Scuro, seppia e scala di grigi, con luminosità e calore."
+  },
+  "sectionDisplayMode": {
+    "message": "Modalità di visualizzazione"
+  },
+  "modeOff": {
+    "message": "Off"
+  },
+  "modeDark": {
+    "message": "Scuro"
+  },
+  "modeSepia": {
+    "message": "Seppia"
+  },
+  "modeGrayscale": {
+    "message": "Grigio"
+  },
+  "sectionAppearance": {
+    "message": "Aspetto"
+  },
+  "actionReset": {
+    "message": "Reimposta"
+  },
+  "controlBrightness": {
+    "message": "Luminosità"
+  },
+  "controlContrast": {
+    "message": "Contrasto"
+  },
+  "controlWarmth": {
+    "message": "Calore"
+  },
+  "hintBrightness": {
+    "message": "Attenua la pagina"
+  },
+  "hintContrast": {
+    "message": "Ammorbidisce il nero e il bianco puri"
+  },
+  "hintWarmth": {
+    "message": "Riduce la luce blu"
+  },
+  "appearanceScope": {
+    "message": "Si applica a tutti i siti."
+  },
+  "noticeUnsupported": {
+    "message": "Le estensioni non possono modificare questa pagina."
+  },
+  "noticeTabError": {
+    "message": "Impossibile leggere la scheda corrente."
+  },
+  "noticeSaveFailed": {
+    "message": "Impossibile salvare la preferenza. Riprova."
+  },
+  "pillAlreadyDark": {
+    "message": "Già scuro"
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "Questo sito mostra già il proprio tema scuro"
+  },
+  "pillHasDarkTheme": {
+    "message": "Ha tema scuro"
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "Questo sito include un tema scuro. La sua impostazione sarà migliore di un filtro colore."
+  },
+  "noticeAlreadyDark": {
+    "message": "Questa pagina è già scura. Invertirla la renderà chiara: qui è meglio Off."
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler — questo sito ha già il proprio tema scuro"
+  },
+  "footerDevelopedBy": {
+    "message": "Sviluppato da"
+  }
+}

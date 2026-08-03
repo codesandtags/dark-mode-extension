@@ -1,0 +1,77 @@
+{
+  "extDescription": {
+    "message": "Tryb ciemny dla stron, które go nie mają. Ciemny, sepia i odcienie szarości, z regulacją jasności i ciepła."
+  },
+  "sectionDisplayMode": {
+    "message": "Tryb wyświetlania"
+  },
+  "modeOff": {
+    "message": "Wył."
+  },
+  "modeDark": {
+    "message": "Ciemny"
+  },
+  "modeSepia": {
+    "message": "Sepia"
+  },
+  "modeGrayscale": {
+    "message": "Szary"
+  },
+  "sectionAppearance": {
+    "message": "Wygląd"
+  },
+  "actionReset": {
+    "message": "Resetuj"
+  },
+  "controlBrightness": {
+    "message": "Jasność"
+  },
+  "controlContrast": {
+    "message": "Kontrast"
+  },
+  "controlWarmth": {
+    "message": "Ciepło"
+  },
+  "hintBrightness": {
+    "message": "Przyciemnia stronę"
+  },
+  "hintContrast": {
+    "message": "Łagodzi czystą czerń i biel"
+  },
+  "hintWarmth": {
+    "message": "Ogranicza niebieskie światło"
+  },
+  "appearanceScope": {
+    "message": "Dotyczy wszystkich stron."
+  },
+  "noticeUnsupported": {
+    "message": "Rozszerzenia nie mogą zmienić tej strony."
+  },
+  "noticeTabError": {
+    "message": "Nie udało się odczytać bieżącej karty."
+  },
+  "noticeSaveFailed": {
+    "message": "Nie udało się zapisać ustawienia. Spróbuj ponownie."
+  },
+  "pillAlreadyDark": {
+    "message": "Już ciemna"
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "Ta strona wyświetla własny ciemny motyw"
+  },
+  "pillHasDarkTheme": {
+    "message": "Ma ciemny motyw"
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "Ta strona ma własny ciemny motyw. Jej ustawienie wygląda lepiej niż filtr kolorów."
+  },
+  "noticeAlreadyDark": {
+    "message": "Ta strona jest już ciemna. Odwrócenie ją rozjaśni — lepiej wybrać Wył."
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler — ta strona ma już własny ciemny motyw"
+  },
+  "footerDevelopedBy": {
+    "message": "Autor"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "extDescription": {
+    "message": "다크 모드가 없는 사이트를 어둡게. 다크, 세피아, 흑백 모드와 밝기·따뜻함 조절을 제공합니다."
+  },
+  "sectionDisplayMode": {
+    "message": "표시 모드"
+  },
+  "modeOff": {
+    "message": "끄기"
+  },
+  "modeDark": {
+    "message": "다크"
+  },
+  "modeSepia": {
+    "message": "세피아"
+  },
+  "modeGrayscale": {
+    "message": "흑백"
+  },
+  "sectionAppearance": {
+    "message": "화면 설정"
+  },
+  "actionReset": {
+    "message": "초기화"
+  },
+  "controlBrightness": {
+    "message": "밝기"
+  },
+  "controlContrast": {
+    "message": "대비"
+  },
+  "controlWarmth": {
+    "message": "따뜻함"
+  },
+  "hintBrightness": {
+    "message": "페이지를 어둡게 합니다"
+  },
+  "hintContrast": {
+    "message": "완전한 검정과 흰색을 부드럽게 합니다"
+  },
+  "hintWarmth": {
+    "message": "청색광을 줄입니다"
+  },
+  "appearanceScope": {
+    "message": "모든 사이트에 적용됩니다."
+  },
+  "noticeUnsupported": {
+    "message": "확장 프로그램이 이 페이지를 변경할 수 없습니다."
+  },
+  "noticeTabError": {
+    "message": "현재 탭을 읽을 수 없습니다."
+  },
+  "noticeSaveFailed": {
+    "message": "설정을 저장하지 못했습니다. 다시 시도해 주세요."
+  },
+  "pillAlreadyDark": {
+    "message": "이미 다크"
+  },
+  "pillAlreadyDarkTitle": {
+    "message": "이 사이트는 자체 다크 테마를 표시하고 있습니다"
+  },
+  "pillHasDarkTheme": {
+    "message": "다크 테마 있음"
+  },
+  "pillHasDarkThemeTitle": {
+    "message": "이 사이트에는 자체 다크 테마가 있습니다. 사이트 설정이 색상 필터보다 보기 좋습니다."
+  },
+  "noticeAlreadyDark": {
+    "message": "이 페이지는 이미 어둡습니다. 반전하면 밝아지므로 여기서는 끄기가 좋습니다."
+  },
+  "badgeTitleAlreadyDark": {
+    "message": "Dark Mode Enabler — 이 사이트에는 이미 자체 다크 테마가 있습니다"
+  },
+  "footerDevelopedBy": {
+    "message": "개발자"
+  }
+}

@@ -1,3 +1,4 @@
+import { t } from "@/lib/i18n";
 import {
   LEGACY_SYNC_KEY,
   MIGRATION_FLAG,
@@ -84,7 +85,7 @@ async function recordNativeDark(tabId: number, state: NativeDarkState) {
       await browser.action.setBadgeBackgroundColor({ tabId, color: "#2f9e6d" });
       await browser.action.setTitle({
         tabId,
-        title: "Dark Mode Enabler — this site already has its own dark theme",
+        title: t("badgeTitleAlreadyDark"),
       });
     } else {
       await resetBadge(tabId);
